@@ -1,0 +1,81 @@
+{
+  "artboards": [
+    {
+      "file": "Audit.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 780,
+      "h": 1800,
+      "title": "Styling review \u2014 10 findings",
+      "print": "flow"
+    },
+    {
+      "file": "Main.dc.html",
+      "x": 900,
+      "y": 0,
+      "w": 1600,
+      "h": 1000,
+      "title": "A \u00b7 Instrument \u2014 desktop"
+    },
+    {
+      "file": "Mobile.dc.html",
+      "x": 2600,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A \u00b7 Instrument \u2014 phone"
+    },
+    {
+      "file": "Tokens.dc.html",
+      "x": 0,
+      "y": 1940,
+      "w": 780,
+      "h": 1600,
+      "title": "A \u00b7 Instrument \u2014 vocabulary",
+      "print": "flow"
+    },
+    {
+      "file": "Broadsheet.dc.html",
+      "x": 900,
+      "y": 1940,
+      "w": 620,
+      "h": 460,
+      "title": "B \u00b7 Broadsheet"
+    },
+    {
+      "file": "Terminal.dc.html",
+      "x": 1620,
+      "y": 1940,
+      "w": 620,
+      "h": 460,
+      "title": "C \u00b7 Terminal"
+    },
+    {
+      "file": "Signal.dc.html",
+      "x": 900,
+      "y": 2520,
+      "w": 620,
+      "h": 460,
+      "title": "D \u00b7 Signal"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "brief",
+      "x": 0,
+      "y": -190,
+      "w": 780,
+      "text": "Meridian \u2014 styling review and redesign.\nLeft: what the current system costs you. Right: direction A built out on desktop and phone, with its token sheet below. Bottom row: three alternates you did not get, each with its honest tradeoff."
+    },
+    {
+      "id": "pick-one",
+      "x": 1620,
+      "y": 2520,
+      "w": 560,
+      "text": "Pick a direction.\nA is built out because it is the one I would ship. B, C and D are real alternatives, not decoration \u2014 say the word and any of them becomes the deliverable instead."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}

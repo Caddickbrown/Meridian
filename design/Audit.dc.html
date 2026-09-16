@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+  <style>
+    body { margin: 0; background: #0D0C0B; }
+    a { color: #35D6B5; text-decoration: none; }
+    a:hover { color: #7FE8D3; }
+    .m-find { display: flex; gap: 14px; padding: 15px 0; border-top: 1px solid rgba(240,234,222,0.08); }
+    .m-num { flex-shrink: 0; width: 22px; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #4E4A44; padding-top: 2px; font-variant-numeric: tabular-nums; }
+    .m-body { display: flex; flex-direction: column; gap: 6px; flex-grow: 1; min-width: 0; }
+    .m-title { font-size: 14px; font-weight: 600; color: #F0EAE0; letter-spacing: -0.005em; }
+    .m-code { font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #A29B90; background: rgba(240,234,222,0.05); border: 1px solid rgba(240,234,222,0.07); border-radius: 3px; padding: 6px 9px; line-height: 1.55; text-wrap: pretty; }
+    .m-fix { display: flex; gap: 8px; align-items: baseline; font-size: 13px; color: #A29B90; line-height: 1.5; text-wrap: pretty; }
+    .m-arrow { flex-shrink: 0; color: #35D6B5; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; }
+  </style>
+</helmet>
+
+<div style="width: 780px; min-height: 1780px; display: flex; flex-direction: column; gap: 26px; padding: 40px; background: #0D0C0B; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; color: #F0EAE0; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #35D6B5;">STYLING REVIEW</span>
+    <h1 style="margin: 0; font-size: 34px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.1;">What the current design system is doing to you</h1>
+    <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #A29B90; max-width: 60ch; text-wrap: pretty;">Ten findings from <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12.5px; color: #F0EAE0;">src/app/globals.css</span> (2,491 lines), <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12.5px; color: #F0EAE0;">page.tsx</span> and the panel components. Ranked by how much each one costs you.</p>
+  </div>
+
+  <!-- before / after strip -->
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: rgba(240,234,222,0.09); border: 1px solid rgba(240,234,222,0.09); border-radius: 6px; overflow: hidden;">
+
+    <div style="display: flex; flex-direction: column; gap: 7px; padding: 14px; background: #131110;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.08em; color: #6B655C;">TYPE FLOOR</span>
+      <div style="display: flex; align-items: baseline; gap: 9px;">
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 17px; color: #FF5A4E; text-decoration: line-through; text-decoration-color: rgba(255,90,78,0.5);">7px</span>
+        <span style="color: #4E4A44; font-size: 12px;">to</span>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 17px; color: #35D6B5;">11px</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 7px; padding: 14px; background: #131110;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.08em; color: #6B655C;">BRAND HUES</span>
+      <div style="display: flex; align-items: baseline; gap: 9px;">
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 17px; color: #FF5A4E; text-decoration: line-through; text-decoration-color: rgba(255,90,78,0.5);">17</span>
+        <span style="color: #4E4A44; font-size: 12px;">to</span>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 17px; color: #35D6B5;">1 + 2</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 7px; padding: 14px; background: #131110;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.08em; color: #6B655C;">GLOBAL TRANSITION</span>
+      <div style="display: flex; align-items: baseline; gap: 9px;">
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 17px; color: #FF5A4E; text-decoration: line-through; text-decoration-color: rgba(255,90,78,0.5);">600ms</span>
+        <span style="color: #4E4A44; font-size: 12px;">to</span>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 17px; color: #35D6B5;">140ms</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 7px; padding: 14px; background: #131110;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.08em; color: #6B655C;">FLOATING PANELS</span>
+      <div style="display: flex; align-items: baseline; gap: 9px;">
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 17px; color: #FF5A4E; text-decoration: line-through; text-decoration-color: rgba(255,90,78,0.5);">6 edges</span>
+        <span style="color: #4E4A44; font-size: 12px;">to</span>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 17px; color: #35D6B5;">3 docks</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 7px; padding: 14px; background: #131110;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.08em; color: #6B655C;">MAX TRACKING</span>
+      <div style="display: flex; align-items: baseline; gap: 9px;">
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 17px; color: #FF5A4E; text-decoration: line-through; text-decoration-color: rgba(255,90,78,0.5);">0.40em</span>
+        <span style="color: #4E4A44; font-size: 12px;">to</span>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 17px; color: #35D6B5;">0.10em</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 7px; padding: 14px; background: #131110;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.08em; color: #6B655C;">BACKDROP BLUR</span>
+      <div style="display: flex; align-items: baseline; gap: 9px;">
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 17px; color: #FF5A4E; text-decoration: line-through; text-decoration-color: rgba(255,90,78,0.5);">24px</span>
+        <span style="color: #4E4A44; font-size: 12px;">to</span>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 17px; color: #35D6B5;">none</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column;">
+
+    <div class="m-find">
+      <span class="m-num">01</span>
+      <div class="m-body">
+        <span class="m-title">Every element in the app animates four properties for 600ms</span>
+        <div class="m-code">* { transition: background-color .6s, border-color .6s, color .6s, box-shadow .6s; }</div>
+        <div class="m-fix"><span class="m-arrow">FIX</span><span>A universal selector over a WebGL map that repaints constantly. It is why hovers feel like wading. Scope transitions to interactive elements at 140ms, panels at 240ms, and delete the global rule.</span></div>
+      </div>
+    </div>
+
+    <div class="m-find">
+      <span class="m-num">02</span>
+      <div class="m-body">
+        <span class="m-title">Seven-pixel type, set in 0.2em tracking</span>
+        <div class="m-code">.hud-label { font-size: 7px; letter-spacing: .2em; text-transform: uppercase; }</div>
+        <div class="m-fix"><span class="m-arrow">FIX</span><span>Nobody reads this; they recognise its shape and guess. Set an 11px floor for machine labels, 13px for anything with words in it, and let the grid do the compressing instead of the point size.</span></div>
+      </div>
+    </div>
+
+    <div class="m-find">
+      <span class="m-num">03</span>
+      <div class="m-body">
+        <span class="m-title">Seventeen hues compete, and gold means two things at once</span>
+        <div class="m-code">gold + cyan brand · 4 alert colours · 11 map-layer colours</div>
+        <div class="m-fix"><span class="m-arrow">FIX</span><span>Gold is the brand and also reads as caution, so escalation has no colour of its own. Move the brand to one cold accent, then warm hues mean only one thing: something is going wrong.</span></div>
+      </div>
+    </div>
+
+    <div class="m-find">
+      <span class="m-num">04</span>
+      <div class="m-body">
+        <span class="m-title">The map is boxed in on all six edges</span>
+        <div class="m-code">header TL · status TR · layer rail L · tool rail R · view controls BL · ticker B</div>
+        <div class="m-fix"><span class="m-arrow">FIX</span><span>Six floating islands, none aligned to another, each with its own radius and shadow. Collapse to three docks — top bar, left column, bottom strip — and give the globe three clean edges to breathe on.</span></div>
+      </div>
+    </div>
+
+    <div class="m-find">
+      <span class="m-num">05</span>
+      <div class="m-body">
+        <span class="m-title">Glassmorphism over a moving map</span>
+        <div class="m-code">.glass-panel { backdrop-filter: blur(24px) saturate(1.3); border-radius: 14px; }</div>
+        <div class="m-fix"><span class="m-arrow">FIX</span><span>Blur is expensive over WebGL, and it softens exactly the thing this product sells: dense, legible numbers. Opaque surfaces, one-pixel hairlines, one shadow token.</span></div>
+      </div>
+    </div>
+
+    <div class="m-find">
+      <span class="m-num">06</span>
+      <div class="m-body">
+        <span class="m-title">Depth is signalled with brand colour</span>
+        <div class="m-code">.osiris-glow { box-shadow: 0 0 20px gold/.12, 0 0 60px gold/.06; }</div>
+        <div class="m-fix"><span class="m-arrow">FIX</span><span>If elevation is gold, gold cannot also mean state. Elevation goes neutral; colour is reserved for data.</span></div>
+      </div>
+    </div>
+
+    <div class="m-find">
+      <span class="m-num">07</span>
+      <div class="m-body">
+        <span class="m-title">Monospace is doing the work of a typeface</span>
+        <div class="m-code">JetBrains Mono on labels, values, nav, buttons, headings, tooltips</div>
+        <div class="m-fix"><span class="m-arrow">FIX</span><span>Monospace earns its place in tabular figures and machine identifiers. Everywhere else it is a costume. Archivo for interface, IBM Plex Mono for numerals and codes only.</span></div>
+      </div>
+    </div>
+
+    <div class="m-find">
+      <span class="m-num">08</span>
+      <div class="m-body">
+        <span class="m-title">Letter-spacing used as hierarchy</span>
+        <div class="m-code">tracking-[0.4em] · [0.3em] · [0.2em] · [0.18em] · [0.15em]</div>
+        <div class="m-fix"><span class="m-arrow">FIX</span><span>Five tracking values carry no information — weight, size and colour already do. Keep one value, 0.1em, on one class of label.</span></div>
+      </div>
+    </div>
+
+    <div class="m-find">
+      <span class="m-num">09</span>
+      <div class="m-body">
+        <span class="m-title">Ghost Protocol is a find-and-replace, not a theme</span>
+        <div class="m-code">body.theme-ghost { --gold-primary: #B388FF; /* 23 more remaps */ }</div>
+        <div class="m-fix"><span class="m-arrow">FIX</span><span>A variable called --gold-primary holding violet is a token system admitting defeat. Rename to intent — --signal, --surface-2, --escalation — and a theme becomes a decision rather than a substitution.</span></div>
+      </div>
+    </div>
+
+    <div class="m-find">
+      <span class="m-num">10</span>
+      <div class="m-body">
+        <span class="m-title">The stylesheet is decorated</span>
+        <div class="m-code">/* 🔥 THEME TRANSITION SYSTEM 🔥 */ · ══════ rules · 2,491 lines</div>
+        <div class="m-fix"><span class="m-arrow">FIX</span><span>Cosmetic, but it is the tell. This system was dressed rather than designed, and the ten findings above are what that costs at runtime.</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display: flex; gap: 12px; padding: 16px; border: 1px solid rgba(53,214,181,0.24); border-radius: 6px; background: rgba(53,214,181,0.05);">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#35D6B5" stroke-width="1.7" stroke-linecap="round" style="flex-shrink: 0; margin-top: 1px;">
+      <circle cx="12" cy="12" r="9"></circle><path d="M12 16v-5M12 8h.01"></path>
+    </svg>
+    <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #A29B90; text-wrap: pretty;">None of this is a data problem. The feeds, the endpoints and the map are the hard part and they already work. What is failing is the layer between them and the eye — and that is the cheapest thing in the stack to replace.</p>
+  </div>
+
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"$preview":{"width":780,"height":1780}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

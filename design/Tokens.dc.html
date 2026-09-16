@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+  <style>
+    body { margin: 0; background: #0D0C0B; }
+    a { color: #35D6B5; text-decoration: none; }
+    a:hover { color: #7FE8D3; }
+    .m-sec { display: flex; align-items: center; gap: 12px; }
+    .m-sec-t { font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #6B655C; }
+    .m-sec-r { flex-grow: 1; height: 1px; background: rgba(240,234,222,0.09); }
+    .m-sw { display: flex; flex-direction: column; gap: 7px; }
+    .m-sw-c { height: 46px; border-radius: 5px; border: 1px solid rgba(240,234,222,0.08); }
+    .m-sw-n { font-size: 12px; font-weight: 500; color: #F0EAE0; }
+    .m-sw-v { font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10.5px; color: #6B655C; }
+    .m-kv { display: flex; align-items: baseline; gap: 10px; padding: 9px 0; border-top: 1px solid rgba(240,234,222,0.06); }
+    .m-k { width: 128px; flex-shrink: 0; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #6B655C; }
+    .m-v { font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11.5px; color: #A29B90; }
+  </style>
+</helmet>
+
+<div style="width: 780px; min-height: 1580px; display: flex; flex-direction: column; gap: 30px; padding: 40px; background: #0D0C0B; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; color: #F0EAE0; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 9px;">
+    <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #35D6B5;">DIRECTION A · INSTRUMENT</span>
+    <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.12;">The replacement vocabulary</h1>
+    <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #A29B90; max-width: 62ch; text-wrap: pretty;">Warm near-black paper, one cold signal, warm hues reserved for escalation. Nothing glows, nothing blurs, nothing animates for longer than it takes to notice.</p>
+  </div>
+
+  <!-- SURFACES -->
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <div class="m-sec"><span class="m-sec-t">SURFACES</span><span class="m-sec-r"></span></div>
+    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px;">
+      <div class="m-sw"><div class="m-sw-c" style="background: #0A0908;"></div><span class="m-sw-n">void</span><span class="m-sw-v">#0A0908</span></div>
+      <div class="m-sw"><div class="m-sw-c" style="background: #0D0C0B;"></div><span class="m-sw-n">paper</span><span class="m-sw-v">#0D0C0B</span></div>
+      <div class="m-sw"><div class="m-sw-c" style="background: #131110;"></div><span class="m-sw-n">surface</span><span class="m-sw-v">#131110</span></div>
+      <div class="m-sw"><div class="m-sw-c" style="background: #1D1A17;"></div><span class="m-sw-n">raised</span><span class="m-sw-v">#1D1A17</span></div>
+      <div class="m-sw"><div class="m-sw-c" style="background: #262220;"></div><span class="m-sw-n">hover</span><span class="m-sw-v">#262220</span></div>
+    </div>
+  </div>
+
+  <!-- SIGNAL + ESCALATION -->
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <div class="m-sec"><span class="m-sec-t">SIGNAL &amp; ESCALATION</span><span class="m-sec-r"></span><span class="m-sw-v">oklch, equal L and C</span></div>
+    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px;">
+      <div class="m-sw"><div class="m-sw-c" style="background: #35D6B5;"></div><span class="m-sw-n">signal</span><span class="m-sw-v">L.82 C.14 H172</span></div>
+      <div class="m-sw"><div class="m-sw-c" style="background: #93B4FF;"></div><span class="m-sw-n">signal-2</span><span class="m-sw-v">L.82 C.14 H262</span></div>
+      <div class="m-sw"><div class="m-sw-c" style="background: #FFB020;"></div><span class="m-sw-n">elevated</span><span class="m-sw-v">#FFB020</span></div>
+      <div class="m-sw"><div class="m-sw-c" style="background: #FF5A4E;"></div><span class="m-sw-n">critical</span><span class="m-sw-v">#FF5A4E</span></div>
+      <div class="m-sw"><div class="m-sw-c" style="background: #6B655C;"></div><span class="m-sw-n">dormant</span><span class="m-sw-v">#6B655C</span></div>
+    </div>
+    <p style="margin: 0; font-size: 12.5px; line-height: 1.6; color: #6B655C; text-wrap: pretty;">Two brand hues at identical lightness and chroma so neither outranks the other. Amber and red appear nowhere in the chrome — if you see warmth, something is escalating.</p>
+  </div>
+
+  <!-- TYPE -->
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <div class="m-sec"><span class="m-sec-t">TYPE</span><span class="m-sec-r"></span><span class="m-sw-v">Archivo · IBM Plex Mono</span></div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: baseline; gap: 16px;">
+        <span style="width: 112px; flex-shrink: 0; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10.5px; color: #6B655C;">display / 34</span>
+        <span style="font-size: 34px; font-weight: 700; letter-spacing: -0.025em;">Strait of Hormuz</span>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 16px;">
+        <span style="width: 112px; flex-shrink: 0; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10.5px; color: #6B655C;">title / 20</span>
+        <span style="font-size: 20px; font-weight: 600; letter-spacing: -0.015em;">Escalation is rising</span>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 16px;">
+        <span style="width: 112px; flex-shrink: 0; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10.5px; color: #6B655C;">body / 14</span>
+        <span style="font-size: 14px; color: #A29B90;">Fourteen pixels is the smallest size that carries a sentence.</span>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 16px;">
+        <span style="width: 112px; flex-shrink: 0; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10.5px; color: #6B655C;">ui / 13</span>
+        <span style="font-size: 13px; color: #F0EAE0;">Interface labels, buttons, rows, tabs</span>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 16px;">
+        <span style="width: 112px; flex-shrink: 0; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10.5px; color: #6B655C;">figure / 16</span>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 16px; font-weight: 500; font-variant-numeric: tabular-nums;">41,204 · 31,000 · 094</span>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 16px;">
+        <span style="width: 112px; flex-shrink: 0; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10.5px; color: #6B655C;">machine / 11</span>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #A29B90;">AVIATION · FL310 · 14:32:08Z</span>
+      </div>
+    </div>
+    <p style="margin: 0; font-size: 12.5px; line-height: 1.6; color: #6B655C; text-wrap: pretty;">Six steps, one tracking value, one uppercase role. Everything under 11px is deleted rather than shrunk.</p>
+  </div>
+
+  <!-- GEOMETRY + MOTION -->
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <div class="m-sec"><span class="m-sec-t">GEOMETRY &amp; MOTION</span><span class="m-sec-r"></span></div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px;">
+      <div style="display: flex; flex-direction: column;">
+        <div class="m-kv"><span class="m-k">grid</span><span class="m-v">4px base · 16 / 20 padding</span></div>
+        <div class="m-kv"><span class="m-k">radius</span><span class="m-v">4 control · 6 panel · 8 float</span></div>
+        <div class="m-kv"><span class="m-k">hairline</span><span class="m-v">1px rgba(240,234,222,.10)</span></div>
+        <div class="m-kv"><span class="m-k">control-h</span><span class="m-v">34 desktop · 44 touch</span></div>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        <div class="m-kv"><span class="m-k">elevation</span><span class="m-v">0 16px 40px -14px #000d9</span></div>
+        <div class="m-kv"><span class="m-k">state</span><span class="m-v">140ms cubic(.2,0,0,1)</span></div>
+        <div class="m-kv"><span class="m-k">panel</span><span class="m-v">240ms cubic(.16,1,.3,1)</span></div>
+        <div class="m-kv"><span class="m-k">blur</span><span class="m-v">none</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPONENTS -->
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <div class="m-sec"><span class="m-sec-t">PRIMITIVES</span><span class="m-sec-r"></span></div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+      <div style="height: 34px; padding: 0 16px; display: flex; align-items: center; border-radius: 6px; background: #35D6B5; font-size: 13px; font-weight: 600; color: #0D0C0B;">Primary</div>
+      <div style="height: 34px; padding: 0 16px; display: flex; align-items: center; border-radius: 6px; border: 1px solid rgba(240,234,222,0.16); font-size: 13px; font-weight: 600; color: #F0EAE0;">Secondary</div>
+      <div style="height: 34px; padding: 0 16px; display: flex; align-items: center; border-radius: 6px; font-size: 13px; font-weight: 600; color: #A29B90;">Quiet</div>
+      <div style="height: 34px; padding: 0 16px; display: flex; align-items: center; border-radius: 6px; border: 1px solid rgba(255,90,78,0.34); font-size: 13px; font-weight: 600; color: #FF5A4E;">Destructive</div>
+      <span style="width: 1px; height: 26px; background: rgba(240,234,222,0.10);"></span>
+      <div style="height: 26px; padding: 0 10px; display: flex; align-items: center; gap: 7px; border-radius: 4px; background: rgba(240,234,222,0.05); border: 1px solid rgba(240,234,222,0.08);">
+        <span style="width: 6px; height: 6px; border-radius: 999px; background: #35D6B5;"></span>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #A29B90;">LIVE</span>
+      </div>
+      <div style="height: 26px; padding: 0 10px; display: flex; align-items: center; gap: 7px; border-radius: 4px; background: rgba(255,176,32,0.09); border: 1px solid rgba(255,176,32,0.26);">
+        <span style="width: 6px; height: 6px; border-radius: 999px; background: #FFB020;"></span>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #FFB020;">DEGRADED</span>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: rgba(240,234,222,0.09); border: 1px solid rgba(240,234,222,0.09); border-radius: 6px; overflow: hidden;">
+      <div style="display: flex; flex-direction: column; gap: 6px; padding: 14px; background: #131110;">
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.1em; color: #6B655C;">FLIGHTS</span>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 20px; font-weight: 500; font-variant-numeric: tabular-nums;">9,862</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px; padding: 14px; background: #131110;">
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.1em; color: #6B655C;">VESSELS</span>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 20px; font-weight: 500; font-variant-numeric: tabular-nums;">12,104</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px; padding: 14px; background: #131110;">
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.1em; color: #6B655C;">IN ORBIT</span>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 20px; font-weight: 500; font-variant-numeric: tabular-nums;">8,399</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px; padding: 14px; background: #131110;">
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.1em; color: #6B655C;">CONFLICTS</span>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 20px; font-weight: 500; color: #FF5A4E; font-variant-numeric: tabular-nums;">41</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 1px; background: rgba(240,234,222,0.09); border: 1px solid rgba(240,234,222,0.09); border-radius: 6px; overflow: hidden;">
+      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: #131110;">
+        <span style="width: 3px; height: 26px; border-radius: 2px; background: #FF5A4E; flex-shrink: 0;"></span>
+        <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1; min-width: 0;">
+          <span style="font-size: 13px; font-weight: 600;">Airspace closure · Eastern Mediterranean</span>
+          <span style="font-size: 12px; color: #6B655C;">NOTAM issued · 214 flights rerouted</span>
+        </div>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #6B655C;">4m</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: #131110;">
+        <span style="width: 3px; height: 26px; border-radius: 2px; background: #FFB020; flex-shrink: 0;"></span>
+        <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1; min-width: 0;">
+          <span style="font-size: 13px; font-weight: 600;">AIS gap · 9 tankers, Gulf of Oman</span>
+          <span style="font-size: 12px; color: #6B655C;">Transponders dark longer than 40 minutes</span>
+        </div>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #6B655C;">18m</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: #131110;">
+        <span style="width: 3px; height: 26px; border-radius: 2px; background: rgba(240,234,222,0.14); flex-shrink: 0;"></span>
+        <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1; min-width: 0;">
+          <span style="font-size: 13px; font-weight: 600;">M5.1 earthquake · Vanuatu</span>
+          <span style="font-size: 12px; color: #6B655C;">Depth 41km · no tsunami advisory</span>
+        </div>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: #6B655C;">42m</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"$preview":{"width":780,"height":1580}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

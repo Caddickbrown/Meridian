@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Archivo:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+  <style>
+    body { margin: 0; background: #F4F1EA; }
+    a { color: #9C2F1F; }
+    a:hover { color: #7A2417; }
+  </style>
+</helmet>
+
+<div style="width: 620px; height: 460px; display: flex; flex-direction: column; background: #F4F1EA; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; color: #14120F; overflow: hidden;">
+
+  <div style="display: flex; align-items: baseline; gap: 10px; padding: 16px 20px 12px; border-bottom: 1.5px solid #14120F;">
+    <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #9C2F1F;">B</span>
+    <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; letter-spacing: -0.01em;">Broadsheet</span>
+    <span style="flex-grow: 1;"></span>
+    <span style="font-size: 12px; color: #6A6358;">Light chrome · editorial serif · map as the only dark object</span>
+  </div>
+
+  <div style="flex-grow: 1; display: flex; min-height: 0;">
+
+    <div style="width: 178px; flex-shrink: 0; display: flex; flex-direction: column; gap: 14px; padding: 16px 16px; border-right: 1px solid rgba(20,18,15,0.14);">
+      <div style="display: flex; flex-direction: column; gap: 5px;">
+        <span style="font-size: 11px; letter-spacing: 0.08em; color: #9C2F1F;">DISPATCH</span>
+        <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 27px; line-height: 1.1; letter-spacing: -0.015em;">Hormuz tanker traffic thins</span>
+      </div>
+      <p style="margin: 0; font-size: 12px; line-height: 1.55; color: #4A443C; text-wrap: pretty;">Nine transponders dark for more than forty minutes. Escalation index at 7.4, up 1.8 on the day.</p>
+      <div style="display: flex; flex-direction: column; gap: 0;">
+        <div style="display: flex; justify-content: space-between; padding: 7px 0; border-top: 1px solid rgba(20,18,15,0.12); font-size: 12px;"><span style="color: #6A6358;">Flights</span><span style="font-variant-numeric: tabular-nums;">9,862</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 7px 0; border-top: 1px solid rgba(20,18,15,0.12); font-size: 12px;"><span style="color: #6A6358;">Vessels</span><span style="font-variant-numeric: tabular-nums;">12,104</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 7px 0; border-top: 1px solid rgba(20,18,15,0.12); font-size: 12px;"><span style="color: #6A6358;">Conflicts</span><span style="color: #9C2F1F; font-variant-numeric: tabular-nums;">41</span></div>
+      </div>
+    </div>
+
+    <div style="flex-grow: 1; position: relative; margin: 16px; border-radius: 2px; background: #14120F; overflow: hidden;">
+      <div style="position: absolute; left: 44px; top: 26px; width: 300px; height: 300px; border-radius: 999px; border: 1px solid rgba(244,241,234,0.2); background: radial-gradient(circle at 36% 30%, #23201B 0%, #16140F 60%, #0E0C09 100%);"></div>
+      <svg width="300" height="300" viewBox="0 0 300 300" fill="none" style="position: absolute; left: 44px; top: 26px;">
+        <g stroke="rgba(244,241,234,0.14)" stroke-width="0.9">
+          <ellipse cx="150" cy="150" rx="149" ry="42"></ellipse>
+          <ellipse cx="150" cy="150" rx="149" ry="92"></ellipse>
+          <ellipse cx="150" cy="150" rx="42" ry="149"></ellipse>
+          <ellipse cx="150" cy="150" rx="92" ry="149"></ellipse>
+          <path d="M1 150h298M150 1v298"></path>
+        </g>
+        <path d="M62 110 Q 148 48 244 108" stroke="#F4F1EA" stroke-width="1.1" stroke-opacity="0.6" stroke-dasharray="3 4"></path>
+        <g fill="#F4F1EA" fill-opacity="0.8"><circle cx="62" cy="110" r="2"></circle><circle cx="244" cy="108" r="2"></circle><circle cx="140" cy="86" r="1.6"></circle><circle cx="196" cy="160" r="1.6"></circle></g>
+        <circle cx="178" cy="140" r="12" stroke="#E8664D" stroke-width="1.2"></circle>
+        <circle cx="178" cy="140" r="2.6" fill="#E8664D"></circle>
+      </svg>
+      <div style="position: absolute; right: 12px; bottom: 12px; padding: 7px 10px; background: #F4F1EA; border-radius: 2px;">
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.06em; color: #14120F;">26.57°N  56.25°E</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 20px; padding: 12px 20px 16px; border-top: 1px solid rgba(20,18,15,0.14);">
+    <div style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1;">
+      <span style="font-size: 11px; letter-spacing: 0.08em; color: #6A6358;">WHY</span>
+      <span style="font-size: 12.5px; line-height: 1.5; text-wrap: pretty;">Intelligence as a publication, not a cockpit. Inverting to light makes the globe the only lit object on screen, and gives the writing room to be read.</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 3px; width: 200px; flex-shrink: 0;">
+      <span style="font-size: 11px; letter-spacing: 0.08em; color: #9C2F1F;">TRADEOFF</span>
+      <span style="font-size: 12.5px; line-height: 1.5; color: #4A443C; text-wrap: pretty;">Hostile in a dark room, which is where this tool is actually used at 3am.</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"$preview":{"width":620,"height":460}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

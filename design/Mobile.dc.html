@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+  <style>
+    body { margin: 0; background: #0D0C0B; }
+    a { color: #35D6B5; text-decoration: none; }
+    a:hover { color: #7FE8D3; }
+    .m-dots {
+      background-image: radial-gradient(circle, rgba(240,234,222,0.30) 0.9px, transparent 1px);
+      background-size: 6px 6px;
+    }
+    .m-chip { height: 32px; padding: 0 12px; display: flex; align-items: center; gap: 7px; border-radius: 999px; font-size: 12.5px; font-weight: 500; white-space: nowrap; }
+    .m-tab { flex-grow: 1; height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+    .m-tab-l { font-size: 10.5px; font-weight: 500; }
+  </style>
+</helmet>
+
+<div style="width: 390px; height: 844px; display: flex; flex-direction: column; background: #0D0C0B; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; color: #F0EAE0; overflow: hidden;">
+
+  <!-- system status bar area — deliberately left empty for the real one -->
+  <div style="height: 47px; flex-shrink: 0; background: #131110;"></div>
+
+  <!-- header -->
+  <div style="height: 52px; flex-shrink: 0; display: flex; align-items: center; gap: 8px; padding: 0 8px 0 16px; background: #131110; border-bottom: 1px solid rgba(240,234,222,0.10);">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#35D6B5" stroke-width="1.4" style="flex-shrink: 0;">
+      <circle cx="12" cy="12" r="9"></circle>
+      <ellipse cx="12" cy="12" rx="3.6" ry="9"></ellipse>
+      <path d="M3.4 9h17.2M3.4 15h17.2"></path>
+    </svg>
+    <span style="font-size: 16px; font-weight: 600; letter-spacing: -0.01em; flex-grow: 1;">Meridian</span>
+    <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#A29B90" stroke-width="1.8" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.9-3.9"></path>
+      </svg>
+    </div>
+    <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: rgba(53,214,181,0.12);">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#35D6B5" stroke-width="1.7" stroke-linejoin="round">
+        <path d="M12 3l9 5-9 5-9-5z"></path><path d="M3 13l9 5 9-5"></path>
+      </svg>
+    </div>
+  </div>
+
+  <!-- map -->
+  <div style="flex-grow: 1; position: relative; background: #0A0908; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(240,234,222,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(240,234,222,0.035) 1px, transparent 1px); background-size: 72px 72px;"></div>
+
+    <div style="position: absolute; left: -58px; top: 84px; width: 506px; height: 506px;">
+      <div style="position: absolute; inset: 0; border-radius: 999px; background: radial-gradient(circle at 36% 30%, #16201F 0%, #101413 45%, #0A0C0C 100%); border: 1px solid rgba(240,234,222,0.12); overflow: hidden;">
+        <div class="m-dots" style="position: absolute; left: 70px; top: 108px; width: 188px; height: 138px; border-radius: 58% 42% 46% 54% / 55% 48% 52% 45%; opacity: 0.42;"></div>
+        <div class="m-dots" style="position: absolute; left: 94px; top: 260px; width: 108px; height: 166px; border-radius: 48% 52% 60% 40% / 44% 40% 60% 56%; opacity: 0.36;"></div>
+        <div class="m-dots" style="position: absolute; left: 238px; top: 100px; width: 217px; height: 152px; border-radius: 52% 48% 40% 60% / 48% 56% 44% 52%; opacity: 0.44;"></div>
+        <div class="m-dots" style="position: absolute; left: 269px; top: 269px; width: 122px; height: 145px; border-radius: 45% 55% 52% 48% / 50% 45% 55% 50%; opacity: 0.34;"></div>
+        <svg width="506" height="506" viewBox="0 0 506 506" fill="none" style="position: absolute; inset: 0;">
+          <g stroke="rgba(240,234,222,0.09)" stroke-width="1">
+            <ellipse cx="253" cy="253" rx="252" ry="70"></ellipse>
+            <ellipse cx="253" cy="253" rx="252" ry="152"></ellipse>
+            <ellipse cx="253" cy="253" rx="70" ry="252"></ellipse>
+            <ellipse cx="253" cy="253" rx="152" ry="252"></ellipse>
+            <path d="M1 253h504M253 1v504"></path>
+          </g>
+        </svg>
+      </div>
+      <svg width="506" height="506" viewBox="0 0 506 506" fill="none" style="position: absolute; inset: 0;">
+        <path d="M108 188 Q 238 87 405 181" stroke="#35D6B5" stroke-width="1.3" stroke-opacity="0.55" stroke-dasharray="4 5"></path>
+        <path d="M152 340 Q 289 405 441 282" stroke="#93B4FF" stroke-width="1.3" stroke-opacity="0.45" stroke-dasharray="4 5"></path>
+        <g fill="#35D6B5">
+          <circle cx="108" cy="188" r="2.6"></circle><circle cx="405" cy="181" r="2.6"></circle>
+          <circle cx="179" cy="147" r="2"></circle><circle cx="292" cy="127" r="2"></circle>
+          <circle cx="340" cy="229" r="2"></circle><circle cx="233" cy="189" r="2"></circle>
+        </g>
+        <g fill="#93B4FF">
+          <circle cx="152" cy="340" r="2.4"></circle><circle cx="441" cy="282" r="2.4"></circle>
+          <circle cx="265" cy="360" r="2"></circle><circle cx="322" cy="327" r="2"></circle>
+        </g>
+        <circle cx="302" cy="233" r="15" stroke="#FF5A4E" stroke-width="1.2" stroke-opacity="0.8"></circle>
+        <circle cx="302" cy="233" r="24" stroke="#FF5A4E" stroke-width="1" stroke-opacity="0.3"></circle>
+        <circle cx="302" cy="233" r="3" fill="#FF5A4E"></circle>
+      </svg>
+    </div>
+
+    <!-- layer chips -->
+    <div style="position: absolute; left: 0; right: 0; top: 12px; display: flex; gap: 8px; padding: 0 16px; overflow: hidden;">
+      <div class="m-chip" style="background: rgba(53,214,181,0.14); border: 1px solid rgba(53,214,181,0.3); color: #35D6B5;">
+        <span style="width: 6px; height: 6px; border-radius: 999px; background: #35D6B5;"></span>Flights
+      </div>
+      <div class="m-chip" style="background: rgba(147,180,255,0.12); border: 1px solid rgba(147,180,255,0.28); color: #93B4FF;">
+        <span style="width: 6px; height: 6px; border-radius: 999px; background: #93B4FF;"></span>Maritime
+      </div>
+      <div class="m-chip" style="background: rgba(19,17,16,0.9); border: 1px solid rgba(240,234,222,0.12); color: #6B655C;">Orbital</div>
+      <div class="m-chip" style="background: rgba(19,17,16,0.9); border: 1px solid rgba(240,234,222,0.12); color: #6B655C;">Fires</div>
+    </div>
+
+    <!-- alert card -->
+    <div style="position: absolute; left: 16px; right: 16px; bottom: 16px; display: flex; flex-direction: column; background: #131110; border: 1px solid rgba(240,234,222,0.12); border-radius: 10px; box-shadow: 0 14px 36px -12px rgba(0,0,0,0.85); overflow: hidden;">
+      <div style="display: flex; align-items: center; gap: 11px; padding: 14px 15px;">
+        <span style="width: 3px; height: 32px; border-radius: 2px; background: #FF5A4E; flex-shrink: 0;"></span>
+        <div style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0;">
+          <span style="font-size: 14px; font-weight: 600;">Strait of Hormuz</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.04em; color: #FF8A80;">ESCALATION 7.4 · 214 VESSELS</span>
+        </div>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6B655C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M9 6l6 6-6 6"></path></svg>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: rgba(240,234,222,0.08); border-top: 1px solid rgba(240,234,222,0.08);">
+        <div style="display: flex; flex-direction: column; gap: 4px; padding: 11px 15px; background: #131110;">
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.08em; color: #6B655C;">TANKERS</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 15px; font-variant-numeric: tabular-nums;">87</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px; padding: 11px 15px; background: #131110;">
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.08em; color: #6B655C;">AIS DARK</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 15px; color: #FFB020; font-variant-numeric: tabular-nums;">9</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px; padding: 11px 15px; background: #131110;">
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing: 0.08em; color: #6B655C;">24H</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 15px; color: #FF5A4E; font-variant-numeric: tabular-nums;">+1.8</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- tab bar -->
+  <div style="flex-shrink: 0; display: flex; align-items: stretch; padding: 4px 4px 0; background: #131110; border-top: 1px solid rgba(240,234,222,0.10);">
+    <div class="m-tab">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#35D6B5" stroke-width="1.6"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="3.6" ry="9"></ellipse><path d="M3.4 9h17.2M3.4 15h17.2"></path></svg>
+      <span class="m-tab-l" style="color: #35D6B5;">Map</span>
+    </div>
+    <div class="m-tab">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#6B655C" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"></path></svg>
+      <span class="m-tab-l" style="color: #6B655C;">Feed</span>
+    </div>
+    <div class="m-tab">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#6B655C" stroke-width="1.7" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"></path><path d="M3 13l9 5 9-5"></path></svg>
+      <span class="m-tab-l" style="color: #6B655C;">Layers</span>
+    </div>
+    <div class="m-tab">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#6B655C" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8"></circle><path d="M12 12l5-3"></path><circle cx="12" cy="12" r="1.6" fill="#6B655C" stroke="none"></circle></svg>
+      <span class="m-tab-l" style="color: #6B655C;">Recon</span>
+    </div>
+  </div>
+
+  <!-- home indicator area — left for the system -->
+  <div style="height: 22px; flex-shrink: 0; background: #131110;"></div>
+
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>
