@@ -128,7 +128,7 @@ export function getHotspots(): MeridianPoint[] {
     type: 'hotspot' as const,
     label: s.label, detail: s.detail,
     severity: (s.esc >= 4 ? 'high' : s.esc === 3 ? 'med' : 'low') as MeridianPoint['severity'],
-    extra: { ...s.extra, EscalationScore: String(s.esc) },
+    extra: { ...Object.fromEntries(Object.entries(s.extra ?? {}).map(([k,v]) => [k, v ?? ''])), EscalationScore: String(s.esc) },
   }))
 }
 
