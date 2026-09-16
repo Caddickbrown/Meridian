@@ -85,7 +85,7 @@ export default function IntelFeed({ data, onLocate }: IntelFeedProps) {
             <div className="max-h-[400px] overflow-y-auto styled-scrollbar divide-y divide-[var(--border-secondary)]">
               {news.length === 0 ? (
                 <div className="px-4 py-6 text-center">
-                  <span className="text-[10px] font-mono text-[var(--text-muted)] tracking-widest">
+                  <span className="text-[10px] font-mono text-[var(--text-muted)] tracking-[0.1em]">
                     AWAITING INTELLIGENCE...
                   </span>
                 </div>
@@ -101,7 +101,7 @@ export default function IntelFeed({ data, onLocate }: IntelFeedProps) {
                   >
                     {/* Top row: risk badge + source + time */}
                     <div className="flex items-center gap-2 mb-1">
-                      <span className={`text-[10px] font-mono font-bold tracking-widest ${getRiskClass(item.risk_score)}`}>
+                      <span className={`text-[10px] font-mono font-bold tracking-[0.1em] ${getRiskClass(item.risk_score)}`}>
                         {getRiskLabel(item.risk_score)}
                       </span>
                       <span className="text-[9px] font-mono text-[var(--text-muted)] bg-[var(--bg-tertiary)] px-1.5 py-0.5 rounded">

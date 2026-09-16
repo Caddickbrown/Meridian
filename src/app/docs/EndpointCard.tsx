@@ -130,7 +130,7 @@ export default function EndpointCard({ ep, origin }: { ep: ApiEndpoint; origin: 
           {methods.map(m => (
             <span
               key={m}
-              className={`text-[10px] font-mono font-bold tracking-widest px-1.5 py-0.5 rounded border text-center ${METHOD_STYLES[m]}`}
+              className={`text-[10px] font-mono font-bold tracking-[0.1em] px-1.5 py-0.5 rounded border text-center ${METHOD_STYLES[m]}`}
             >
               {m}
             </span>
@@ -165,7 +165,7 @@ export default function EndpointCard({ ep, origin }: { ep: ApiEndpoint; origin: 
           {/* Params */}
           {ep.params && ep.params.length > 0 && (
             <div className="mb-4">
-              <div className="text-[10px] font-mono tracking-[0.2em] uppercase text-[var(--text-muted)] mb-2">
+              <div className="text-[10px] font-mono tracking-[0.1em] uppercase text-[var(--text-muted)] mb-2">
                 Query parameters
               </div>
               <div className="space-y-2">
@@ -202,7 +202,7 @@ export default function EndpointCard({ ep, origin }: { ep: ApiEndpoint; origin: 
           {/* Request body */}
           {ep.bodyExample && (
             <>
-              <div className="text-[10px] font-mono tracking-[0.2em] uppercase text-[var(--text-muted)] mb-1">
+              <div className="text-[10px] font-mono tracking-[0.1em] uppercase text-[var(--text-muted)] mb-1">
                 Request body
               </div>
               <CodeBlock dense tabs={[{ label: 'JSON', lang: 'json', code: ep.bodyExample }]} />
@@ -210,7 +210,7 @@ export default function EndpointCard({ ep, origin }: { ep: ApiEndpoint; origin: 
           )}
 
           {/* Request snippets */}
-          <div className="text-[10px] font-mono tracking-[0.2em] uppercase text-[var(--text-muted)] mb-1 mt-4">
+          <div className="text-[10px] font-mono tracking-[0.1em] uppercase text-[var(--text-muted)] mb-1 mt-4">
             Request
           </div>
           <CodeBlock dense tabs={tabs} />
@@ -222,7 +222,7 @@ export default function EndpointCard({ ep, origin }: { ep: ApiEndpoint; origin: 
                 <button
                   onClick={run}
                   disabled={running || missingRequired.length > 0}
-                  className="inline-flex items-center gap-1.5 text-[11px] font-mono tracking-[0.15em] uppercase px-3 py-1.5 rounded-md border border-[var(--gold-primary)]/40 bg-[var(--gold-primary)]/10 text-[var(--gold-primary)] hover:bg-[var(--gold-primary)]/20 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  className="inline-flex items-center gap-1.5 text-[11px] font-mono tracking-[0.1em] uppercase px-3 py-1.5 rounded-md border border-[var(--gold-primary)]/40 bg-[var(--gold-primary)]/10 text-[var(--gold-primary)] hover:bg-[var(--gold-primary)]/20 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                 >
                   {running ? (
                     <span className="w-2.5 h-2.5 rounded-full border border-current border-t-transparent animate-spin" />
@@ -253,7 +253,7 @@ export default function EndpointCard({ ep, origin }: { ep: ApiEndpoint; origin: 
           {result && (
             <div className="mt-3">
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[var(--text-muted)]">
+                <span className="text-[10px] font-mono tracking-[0.1em] uppercase text-[var(--text-muted)]">
                   Response
                 </span>
                 <span
@@ -273,7 +273,7 @@ export default function EndpointCard({ ep, origin }: { ep: ApiEndpoint; origin: 
 
           {/* Returns */}
           <div className="mt-4">
-            <div className="text-[10px] font-mono tracking-[0.2em] uppercase text-[var(--text-muted)] mb-1.5">
+            <div className="text-[10px] font-mono tracking-[0.1em] uppercase text-[var(--text-muted)] mb-1.5">
               Response keys
             </div>
             <div className="flex flex-wrap gap-1.5">
@@ -291,7 +291,7 @@ export default function EndpointCard({ ep, origin }: { ep: ApiEndpoint; origin: 
           {/* Env */}
           {ep.env && ep.env.length > 0 && (
             <div className="mt-3 flex flex-wrap items-center gap-1.5">
-              <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[var(--text-muted)]">
+              <span className="text-[10px] font-mono tracking-[0.1em] uppercase text-[var(--text-muted)]">
                 Environment
               </span>
               {ep.env.map(e => (

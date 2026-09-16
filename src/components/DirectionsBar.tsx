@@ -884,7 +884,7 @@ export default function DirectionsBar({ onRoute, onLocate, onClose, center = nul
               <div className="px-3 py-2.5 border-b border-[var(--border-secondary)] bg-[rgba(66,133,244,0.07)]">
                 <div className="flex items-center gap-1.5 mb-1.5">
                   <Navigation className="w-2.5 h-2.5 text-[#4285F4]" />
-                  <span className="text-[9px] uppercase tracking-[0.15em] text-[#4285F4]">Next turn</span>
+                  <span className="text-[9px] uppercase tracking-[0.1em] text-[#4285F4]">Next turn</span>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <span className="mt-0.5 flex-shrink-0"><StepIcon type={guidance.step.type} /></span>
@@ -900,7 +900,7 @@ export default function DirectionsBar({ onRoute, onLocate, onClose, center = nul
 
             {/* summary — sticky so time, distance and ETA stay visible while
                 the step list scrolls underneath */}
-            <div className="sticky top-0 z-10 px-3 py-2.5 border-b border-[var(--border-secondary)] bg-[var(--bg-panel)] backdrop-blur-xl">
+            <div className="sticky top-0 z-10 px-3 py-2.5 border-b border-[var(--border-secondary)] bg-[var(--bg-panel)]">
               <div className="flex items-baseline justify-between gap-3">
                 <div className="min-w-0">
                   <div className="text-[17px] leading-none text-[var(--gold-primary)] tabular-nums">
@@ -932,7 +932,7 @@ export default function DirectionsBar({ onRoute, onLocate, onClose, center = nul
               {route.elevation && route.elevation.length > 1 && (
                 <div className="mt-2.5">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="flex items-center gap-1 text-[9px] uppercase tracking-[0.15em] text-[var(--text-muted)]">
+                    <span className="flex items-center gap-1 text-[9px] uppercase tracking-[0.1em] text-[var(--text-muted)]">
                       <Mountain className="w-2.5 h-2.5" /> Elevation
                     </span>
                     <span className="text-[10px] text-[var(--text-secondary)] tabular-nums">
@@ -942,7 +942,7 @@ export default function DirectionsBar({ onRoute, onLocate, onClose, center = nul
                   <svg viewBox="0 0 300 40" className="w-full h-10" preserveAspectRatio="none" aria-hidden="true">
                     <path
                       d={`${elevationPath(route.elevation, 300, 38)} L300,40 L0,40 Z`}
-                      fill="rgba(0,229,255,0.12)"
+                      fill="rgba(147,180,255,0.12)"
                     />
                     <path
                       d={elevationPath(route.elevation, 300, 38)}

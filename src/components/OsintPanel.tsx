@@ -396,7 +396,7 @@ function OsintPanelInner({ isMobile, onSweepVisualize, onScanGeolocate }: OsintP
   const SectionHeader = ({ title, icon: Icon, color }: { title: string; icon: any; color: string }) => (
     <div className="flex items-center gap-2 mt-3 mb-1.5 first:mt-0">
       <Icon className="w-3.5 h-3.5" style={{ color }} />
-      <span className="text-[11px] font-mono font-bold tracking-widest" style={{ color }}>{title}</span>
+      <span className="text-[11px] font-mono font-bold tracking-[0.1em]" style={{ color }}>{title}</span>
       <div className="flex-1 h-px" style={{ background: `${color}30` }} />
     </div>
   );
@@ -1250,7 +1250,7 @@ function OsintPanelInner({ isMobile, onSweepVisualize, onScanGeolocate }: OsintP
           if (!tools.length) return null;
           return (
             <div key={group.id} className="mb-3 last:mb-0">
-              <div className="text-[10px] font-mono tracking-[0.2em] text-[var(--text-muted)]/70 mb-1.5 pt-1">
+              <div className="text-[10px] font-mono tracking-[0.1em] text-[var(--text-muted)]/70 mb-1.5 pt-1">
                 {group.label}
               </div>
               <div className="flex flex-col gap-0.5">
@@ -1369,7 +1369,7 @@ function OsintPanelInner({ isMobile, onSweepVisualize, onScanGeolocate }: OsintP
             if (!tools.length) return null;
             return (
               <div key={group.id} className="mb-2 last:mb-0">
-                <div className="text-[9px] font-mono tracking-[0.18em] text-[var(--text-muted)]/60 mb-1">{group.label}</div>
+                <div className="text-[9px] font-mono tracking-[0.1em] text-[var(--text-muted)]/60 mb-1">{group.label}</div>
                 <div className="grid grid-cols-4 gap-1">
                   {tools.map(tab => (
                     <button key={tab.id} onClick={() => selectTool(tab.id)}
@@ -1594,7 +1594,7 @@ function OsintPanelInner({ isMobile, onSweepVisualize, onScanGeolocate }: OsintP
                     {/* Ports + Hostnames Row */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#2A2A28]">
                       <div className="bg-[#0D0D0C] p-4">
-                        <div className="text-[11px] font-mono text-[#5C5A54] tracking-widest uppercase mb-2">Open Ports</div>
+                        <div className="text-[11px] font-mono text-[#5C5A54] tracking-[0.1em] uppercase mb-2">Open Ports</div>
                         <div className="flex flex-wrap gap-1.5">
                           {device.ports.map((port: number) => (
                             <span key={port} className="px-2 py-1 bg-[#1A1A18] border border-[#2A2A28] rounded text-[10px] font-mono text-[var(--cyan-primary)]">{port}</span>
@@ -1602,7 +1602,7 @@ function OsintPanelInner({ isMobile, onSweepVisualize, onScanGeolocate }: OsintP
                         </div>
                       </div>
                       <div className="bg-[#0D0D0C] p-4">
-                        <div className="text-[11px] font-mono text-[#5C5A54] tracking-widest uppercase mb-2">Hostnames</div>
+                        <div className="text-[11px] font-mono text-[#5C5A54] tracking-[0.1em] uppercase mb-2">Hostnames</div>
                         {device.hostnames.length > 0 ? (
                           <div className="flex flex-col gap-1">
                             {device.hostnames.map((h: string) => (
@@ -1618,7 +1618,7 @@ function OsintPanelInner({ isMobile, onSweepVisualize, onScanGeolocate }: OsintP
                     {/* CVE Intelligence */}
                     {device.vulns.length > 0 && (
                       <div className="p-4 border-t border-[#2A2A28]">
-                        <div className="text-[11px] font-mono text-[#5C5A54] tracking-widest uppercase mb-3">Vulnerabilities ({device.vulns.length})</div>
+                        <div className="text-[11px] font-mono text-[#5C5A54] tracking-[0.1em] uppercase mb-3">Vulnerabilities ({device.vulns.length})</div>
                         <div className="flex flex-col gap-2">
                           {device.vulns.map((cveId: string) => {
                             const info = cveCache[cveId];
@@ -1687,7 +1687,7 @@ function OsintPanelInner({ isMobile, onSweepVisualize, onScanGeolocate }: OsintP
       {(results || (activeTab === 'crypto' && chainView === 'brief')) && !(sweepResult && !loading) && (
         <div className="bg-[var(--bg-primary)]/40 border border-[var(--border-primary)] rounded-lg p-3 max-h-[50vh] overflow-y-auto styled-scrollbar">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] font-mono tracking-widest" style={{ color: currentTab?.color }}>{currentTab?.label} RESULTS</span>
+            <span className="text-[10px] font-mono tracking-[0.1em]" style={{ color: currentTab?.color }}>{currentTab?.label} RESULTS</span>
             <span className="text-[9px] font-mono text-[var(--text-muted)] flex items-center gap-1"><Clock className="w-2.5 h-2.5" />{new Date().toLocaleTimeString()}</span>
           </div>
           {renderStructuredResults()}
@@ -1696,7 +1696,7 @@ function OsintPanelInner({ isMobile, onSweepVisualize, onScanGeolocate }: OsintP
 
       {history.length > 0 && !results && (
         <div className="space-y-1">
-          <span className="text-[10px] font-mono tracking-widest text-[var(--text-muted)]">RECENT SCANS</span>
+          <span className="text-[10px] font-mono tracking-[0.1em] text-[var(--text-muted)]">RECENT SCANS</span>
           {history.slice(0, 5).map((h, i) => (
             <button key={i} onClick={() => { setActiveTab(h.tab); setQuery(h.query); }}
               className="w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg hover:bg-[var(--hover-accent)] transition-colors text-left">
@@ -1718,9 +1718,9 @@ function OsintPanelInner({ isMobile, onSweepVisualize, onScanGeolocate }: OsintP
     const fullScreenNode = (
       <div className="fixed inset-4 z-[999] flex items-center justify-center">
         {/* Click-away backdrop; Escape also exits. */}
-        <div className="absolute inset-[-1rem] bg-black/60 backdrop-blur-sm" onClick={() => setIsFullScreen(false)} />
+        <div className="absolute inset-[-1rem] bg-black/60" onClick={() => setIsFullScreen(false)} />
 
-        <div className="relative w-full h-full max-w-[1500px] glass-panel bg-[#0a0a09]/97 backdrop-blur-2xl border border-[var(--cyan-primary)]/40 rounded-xl flex flex-col overflow-hidden shadow-2xl shadow-[var(--cyan-primary)]/20">
+        <div className="relative w-full h-full max-w-[1500px] glass-panel bg-[#0a0a09]/97 border border-[var(--cyan-primary)]/40 rounded-xl flex flex-col overflow-hidden shadow-2xl shadow-[var(--cyan-primary)]/20">
           <div className="flex items-center justify-between px-6 py-3.5 border-b border-[var(--border-secondary)] bg-[#111] flex-shrink-0">
             <div className="flex items-center gap-3 min-w-0">
               <Radar className="w-5 h-5 text-[var(--cyan-primary)] flex-shrink-0" />
@@ -1754,7 +1754,7 @@ function OsintPanelInner({ isMobile, onSweepVisualize, onScanGeolocate }: OsintP
                   <div className="mb-4">
                     <div className="flex items-center gap-2.5 mb-1">
                       <currentTab.icon className="w-5 h-5" style={{ color: currentTab.color }} />
-                      <h2 className="text-[15px] font-mono font-bold tracking-widest" style={{ color: currentTab.color }}>
+                      <h2 className="text-[15px] font-mono font-bold tracking-[0.1em]" style={{ color: currentTab.color }}>
                         {currentTab.label}
                       </h2>
                     </div>

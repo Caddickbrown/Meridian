@@ -93,10 +93,10 @@ export default function SpaceCam() {
   }, [expanded]);
 
   return (
-    <div className="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-panel)] backdrop-blur-2xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+    <div className="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-panel)] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
       <div className="flex items-center gap-2 px-3 py-2 border-b border-[var(--border-secondary)]/40">
         <Radio className="w-3.5 h-3.5 text-[#00E5FF]" />
-        <span className="text-[11px] font-mono font-bold tracking-widest text-[#00E5FF]">
+        <span className="text-[11px] font-mono font-bold tracking-[0.1em] text-[#00E5FF]">
           LIVE FROM SPACE
         </span>
         <span className="ml-auto flex items-center gap-1">
@@ -168,7 +168,7 @@ export default function SpaceCam() {
 
       {expanded && typeof document !== 'undefined' && createPortal(
         <div
-          className="fixed inset-0 z-[9000] bg-black/95 backdrop-blur-sm flex flex-col items-center justify-center p-4 md:p-8"
+          className="fixed inset-0 z-[9000] bg-black/95 flex flex-col items-center justify-center p-4 md:p-8"
           onClick={() => setExpanded(false)}
         >
           <div
@@ -177,7 +177,7 @@ export default function SpaceCam() {
           >
             <div className="flex items-center gap-2 mb-2">
               <Radio className="w-4 h-4 text-[#00E5FF]" />
-              <span className="text-[11px] font-mono font-bold tracking-widest text-[#00E5FF]">
+              <span className="text-[11px] font-mono font-bold tracking-[0.1em] text-[#00E5FF]">
                 LIVE FROM SPACE
               </span>
               <span className="text-[11px] font-mono text-[var(--text-muted)]">· {active.detail}</span>

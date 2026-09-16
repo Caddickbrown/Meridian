@@ -110,7 +110,7 @@ export default function CommandPalette({
 
   return (
     <div
-      className="fixed inset-0 z-[500] flex items-start justify-center pt-[12vh] px-4 bg-black/70 backdrop-blur-sm"
+      className="fixed inset-0 z-[500] flex items-start justify-center pt-[12vh] px-4 bg-black/70"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -156,7 +156,7 @@ export default function CommandPalette({
               }`}
             >
               <span
-                className={`text-[9px] font-mono tracking-widest uppercase px-1.5 py-0.5 rounded border shrink-0 ${
+                className={`text-[9px] font-mono tracking-[0.1em] uppercase px-1.5 py-0.5 rounded border shrink-0 ${
                   it.kind === 'Endpoint'
                     ? 'text-[var(--cyan-primary)] border-[var(--cyan-primary)]/25'
                     : 'text-[var(--gold-primary)] border-[var(--gold-primary)]/25'

@@ -64,11 +64,11 @@ export default function DrawHud({ mode, progress, onUndo, onFinish, onCancel }: 
 
   return (
     <div className="pointer-events-none absolute inset-x-0 top-3 z-[500] flex justify-center px-3">
-      <div className="pointer-events-auto flex flex-col gap-2 rounded-xl border border-[var(--cyan-primary)]/40 bg-[var(--bg-panel)]/95 px-4 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.6)] backdrop-blur-2xl">
+      <div className="pointer-events-auto flex flex-col gap-2 rounded-xl border border-[var(--cyan-primary)]/40 bg-[var(--bg-panel)]/95 px-4 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
         <div className="flex items-center gap-3">
           <span className="flex items-center gap-2">
             <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--cyan-primary)]" />
-            <span className="text-[11px] font-mono font-bold tracking-[0.2em] text-[var(--cyan-primary)]">
+            <span className="text-[11px] font-mono font-bold tracking-[0.1em] text-[var(--cyan-primary)]">
               {TITLE[mode]}
             </span>
           </span>

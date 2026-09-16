@@ -268,7 +268,7 @@ function LayerPanel({ data, activeLayers, setActiveLayers, isMobile, theme = 'co
       <div className="flex flex-col gap-5 py-2">
         {visibleGroups.map((group) => (
           <div key={group.label} className="flex flex-col gap-2">
-            <div className="text-[10px] font-mono tracking-[0.2em] uppercase text-white/30 border-b border-white/[0.06] pb-1.5">
+            <div className="text-[10px] font-mono tracking-[0.1em] uppercase text-white/30 border-b border-white/[0.06] pb-1.5">
               {group.fullLabel}
             </div>
             <div className="flex flex-col gap-1">
@@ -305,7 +305,7 @@ function LayerPanel({ data, activeLayers, setActiveLayers, isMobile, theme = 'co
 
         {/* MOBILE STYLE STUDIO */}
         <div className="flex items-center justify-between mt-2 pt-3 border-t border-white/[0.06] px-1">
-          <span className="text-[10px] font-mono tracking-[0.2em] text-white/25 uppercase">Style Studio</span>
+          <span className="text-[10px] font-mono tracking-[0.1em] text-white/25 uppercase">Style Studio</span>
           <button
             onClick={() => setStudioOpen(o => !o)}
             aria-pressed={studioOpen}
@@ -325,7 +325,7 @@ function LayerPanel({ data, activeLayers, setActiveLayers, isMobile, theme = 'co
         {/* MOBILE GHOST TOGGLE */}
         {setTheme && (
           <div className="flex items-center justify-between pt-3 border-t border-white/[0.06] px-1">
-            <span className="text-[10px] font-mono tracking-[0.2em] text-white/25 uppercase">Ghost Protocol</span>
+            <span className="text-[10px] font-mono tracking-[0.1em] text-white/25 uppercase">Ghost Protocol</span>
             <button
               onClick={() => setTheme(theme === 'core' ? 'ghost' : 'core')}
               className="w-8 h-8 rounded-full flex items-center justify-center transition-all"
@@ -350,9 +350,8 @@ function LayerPanel({ data, activeLayers, setActiveLayers, isMobile, theme = 'co
       transition={{ type: 'spring', damping: 30, stiffness: 200, delay: 2.8 }}
       className="absolute top-0 left-0 h-full w-[48px] flex flex-col items-center pt-24 pb-6 z-50 pointer-events-auto"
       style={{
-        background: 'rgba(0,0,0,0.15)',
-        backdropFilter: 'blur(24px) saturate(1.2)',
-        WebkitBackdropFilter: 'blur(24px) saturate(1.2)',
+        background: 'var(--surface)',
+        borderRight: '1px solid var(--hairline)',
       }}
     >
       <div className="flex-1 flex flex-col items-center gap-1">
@@ -408,11 +407,10 @@ function LayerPanel({ data, activeLayers, setActiveLayers, isMobile, theme = 'co
                     gives no reading at all until each icon is hovered in turn. */}
                 {activeCount > 0 && (
                   <span
-                    className="absolute top-1 right-1 min-w-[13px] h-[13px] px-[3px] rounded-full flex items-center justify-center text-[9px] font-mono tabular-nums leading-none"
+                    className="absolute top-0.5 right-0.5 min-w-[15px] h-[15px] px-[4px] rounded-full flex items-center justify-center text-[10px] font-mono tabular-nums leading-none"
                     style={{
-                      background: 'rgba(0,229,255,0.9)',
-                      color: '#04040A',
-                      boxShadow: '0 0 6px rgba(0,229,255,0.5)',
+                      background: 'var(--signal-2)',
+                      color: 'var(--paper)',
                     }}
                   >
                     {activeCount}
@@ -438,7 +436,7 @@ function LayerPanel({ data, activeLayers, setActiveLayers, isMobile, theme = 'co
                     }}
                   >
                     <div className="flex items-center gap-2 mb-2.5 pb-1.5 border-b border-white/[0.04]">
-                      <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-white/35 flex-1">
+                      <span className="text-[10px] font-mono tracking-[0.1em] uppercase text-white/35 flex-1">
                         {group.fullLabel}
                       </span>
                       {/* Switching eight satellite layers one at a time is the

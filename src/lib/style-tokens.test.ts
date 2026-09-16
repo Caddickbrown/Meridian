@@ -125,19 +125,28 @@ describe('buildVars', () => {
     const v = buildVars(settings({ accent: '#ff8800', borderAlpha: 0.2, glow: 0.3 }));
     expect(v['--gold-primary']).toBe('#ff8800');
     expect(v['--gold-rgb']).toBe('255, 136, 0');
-    expect(v['--border-primary']).toBe('rgba(255, 136, 0, 0.2)');
+    expect(v['--border-active']).toBe('rgba(255, 136, 0, 0.9)');
     expect(v['--gold-glow']).toBe('rgba(255, 136, 0, 0.3)');
+  });
+
+  it('keeps resting hairlines off the accent', () => {
+    // Only --border-active carries the brand. If every edge in the app were
+    // accent-tinted, an active edge would have nothing left to say.
+    const v = buildVars(settings({ accent: '#ff8800', textPrimary: '#f0eae0', borderAlpha: 0.2 }));
+    expect(v['--border-primary']).toBe('rgba(240, 234, 224, 0.2)');
+    expect(v['--border-secondary']).toBe('rgba(240, 234, 224, 0.12)');
+    expect(v['--hover-accent']).toBe('rgba(240, 234, 224, 0.1)');
   });
 
   it('keeps the active border stronger than the resting one', () => {
     const v = buildVars(settings({ borderAlpha: 0.2 }));
-    expect(v['--border-active']).toBe('rgba(212, 175, 55, 0.48)');
-    expect(v['--border-secondary']).toBe('rgba(212, 175, 55, 0.09)');
+    expect(v['--border-active']).toBe('rgba(53, 214, 181, 0.9)');
+    expect(v['--border-secondary']).toBe('rgba(240, 234, 224, 0.12)');
   });
 
   it('never lets a derived alpha exceed 1', () => {
     const v = buildVars(settings({ borderAlpha: 0.6 }));
-    expect(v['--border-active']).toBe('rgba(212, 175, 55, 1)');
+    expect(v['--border-active']).toBe('rgba(53, 214, 181, 1)');
   });
 
   it('uses the stored surface ramp rather than re-deriving it', () => {

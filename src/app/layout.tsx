@@ -8,7 +8,7 @@ const SITE_TITLE = "Meridian — Global Intelligence Platform";
 const SITE_DESCRIPTION = "The open-source Palantir alternative. Track live aircraft, satellites, and worldwide CCTV cameras on a 3D globe. Run Nmap scans, DNS lookups, WHOIS queries, SSL cert analysis & threat intelligence — all from your browser. 20+ data sources including live earthquake, wildfire, cyber threat and conflict feeds, plus mapped reference data such as nuclear facilities. Free & open source.";
 
 export const viewport: Viewport = {
-  themeColor: "#D4AF37",
+  themeColor: "#35D6B5",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,

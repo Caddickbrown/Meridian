@@ -70,7 +70,7 @@ function colorSafe(value: string | undefined): string {
 function Field({ label, value, color }: { label: string; value: string; color?: string }) {
   return (
     <div className="min-w-0">
-      <div className="text-[8px] font-mono tracking-[0.15em] text-[var(--text-muted)]">{label}</div>
+      <div className="text-[8px] font-mono tracking-[0.1em] text-[var(--text-muted)]">{label}</div>
       <div
         className="truncate text-[11px] font-mono tabular-nums text-[var(--text-primary)]"
         style={color ? { color } : undefined}
@@ -88,7 +88,7 @@ export default function SatelliteCard({ sat, onClose }: { sat: SatelliteDetail; 
 
   return (
     <div
-      className="pointer-events-auto absolute left-2 right-2 top-16 z-[350] overflow-hidden rounded-lg border bg-[var(--bg-panel)] shadow-[0_6px_20px_rgba(0,0,0,0.45)] backdrop-blur-2xl md:left-[72px] md:right-auto md:top-[88px] md:w-[248px]"
+      className="pointer-events-auto absolute left-2 right-2 top-16 z-[350] overflow-hidden rounded-lg border bg-[var(--bg-panel)] shadow-[0_6px_20px_rgba(0,0,0,0.45)] md:left-[72px] md:right-auto md:top-[88px] md:w-[248px]"
       style={{ borderColor: `${accent}33` }}
       role="dialog"
       aria-label={`Satellite ${sat.name}`}
@@ -147,7 +147,7 @@ export default function SatelliteCard({ sat, onClose }: { sat: SatelliteDetail; 
           href={`https://www.n2yo.com/satellite/?s=${encodeURIComponent(sat.noradId)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-1.5 border-t px-2.5 py-2 text-[9px] font-mono tracking-[0.15em] transition-colors"
+          className="flex items-center justify-center gap-1.5 border-t px-2.5 py-2 text-[9px] font-mono tracking-[0.1em] transition-colors"
           style={{ borderColor: 'var(--border-secondary)', color: accent, background: `${accent}0a` }}
         >
           TRACK ON N2YO <ExternalLink className="h-2.5 w-2.5" />

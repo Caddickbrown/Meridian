@@ -99,7 +99,7 @@ export default function SharePanel({ mapView, activeLayers, mouseCoords }: Share
             <div className="mb-3 p-2 rounded-lg bg-[var(--bg-void)] border border-[var(--border-primary)]">
               <div className="flex items-center gap-1.5 mb-1">
                 <MapPin className="w-2.5 h-2.5 text-[var(--gold-primary)]" />
-                <span className="text-[9px] font-mono text-[var(--text-muted)] tracking-widest">CURRENT VIEW</span>
+                <span className="text-[9px] font-mono text-[var(--text-muted)] tracking-[0.1em]">CURRENT VIEW</span>
               </div>
               <div className="text-[9px] font-mono text-[var(--text-secondary)]">
                 {mouseCoords ? `${mouseCoords.lat.toFixed(4)}°, ${mouseCoords.lng.toFixed(4)}°` : '—'} · Zoom {mapView.zoom.toFixed(1)}
@@ -113,7 +113,7 @@ export default function SharePanel({ mapView, activeLayers, mouseCoords }: Share
             <div className="mb-3">
               <div className="flex items-center gap-1.5 mb-1">
                 <Link2 className="w-2.5 h-2.5 text-[var(--text-muted)]" />
-                <span className="text-[9px] font-mono text-[var(--text-muted)] tracking-widest">SHAREABLE LINK</span>
+                <span className="text-[9px] font-mono text-[var(--text-muted)] tracking-[0.1em]">SHAREABLE LINK</span>
               </div>
               <div className="flex gap-1.5">
                 <div className="flex-1 p-1.5 rounded bg-[var(--bg-void)] border border-[var(--border-primary)] text-[9px] font-mono text-[var(--gold-primary)] truncate">
@@ -121,7 +121,7 @@ export default function SharePanel({ mapView, activeLayers, mouseCoords }: Share
                 </div>
                 <button
                   onClick={copyToClipboard}
-                  className={`px-3 py-1.5 rounded text-[9px] font-mono tracking-widest transition-all ${copied ? 'bg-[var(--alert-green)]/20 text-[var(--alert-green)] border border-[var(--alert-green)]/30' : 'bg-[var(--gold-primary)]/10 text-[var(--gold-primary)] border border-[var(--gold-primary)]/30 hover:bg-[var(--gold-primary)]/20'}`}
+                  className={`px-3 py-1.5 rounded text-[9px] font-mono tracking-[0.1em] transition-all ${copied ? 'bg-[var(--alert-green)]/20 text-[var(--alert-green)] border border-[var(--alert-green)]/30' : 'bg-[var(--gold-primary)]/10 text-[var(--gold-primary)] border border-[var(--gold-primary)]/30 hover:bg-[var(--gold-primary)]/20'}`}
                 >
                   {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
                 </button>
@@ -153,7 +153,7 @@ export default function SharePanel({ mapView, activeLayers, mouseCoords }: Share
               </a>
             </div>
 
-            <div className="mt-3 text-center text-[9px] font-mono text-[var(--text-muted)] tracking-widest">
+            <div className="mt-3 text-center text-[9px] font-mono text-[var(--text-muted)] tracking-[0.1em]">
               PRESS [S] TO TOGGLE · SHAREABLE LINKS PRESERVE VIEW STATE
             </div>
           </motion.div>

@@ -1,46 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════
-   OSIRIS — Global Intelligence Platform Design System
-   Egyptian Mythology × Dark Ops × Glassmorphism
+   MERIDIAN — Instrument
+   Warm near-black paper, one cold signal, warm hues reserved for
+   escalation. Nothing glows, nothing blurs, nothing animates for
+   longer than it takes to notice.
+
+   Tokens come in two blocks. The INTENT block below is the source of
+   truth and what new code should read. The LEGACY block after it
+   mirrors those values under the old gold and cyan names, which
+   the Style Studio (src/lib/style-tokens.ts) and most existing
+   components still address by name. The duplication is deliberate and
+   temporary: the legacy block retires once those callers are renamed,
+   and the values are literal rather than var() aliases because
+   map-palette.test.ts parses this file as text.
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-  --gold-rgb: 212, 175, 55;
-  --cyan-rgb: 0, 229, 255;
-  /* ── Core Palette ── */
-  --bg-void: #04040A;
-  --bg-primary: #06060C;
-  --bg-secondary: #0C0E1A;
-  --bg-tertiary: #121628;
-  --bg-panel: rgba(8, 10, 20, 0.88);
-  --bg-panel-solid: #0C0E1A;
+  /* ── Surfaces ── */
+  --void:      #0A0908;
+  --paper:     #0D0C0B;
+  --surface:   #131110;
+  --surface-2: #1D1A17;
+  --surface-3: #262220;
 
-  /* ── Gold Accent (Eye of Horus) ── */
-  --gold-primary: #D4AF37;
-  --gold-light: #F0D060;
-  --gold-dim: #8B7325;
-  --gold-glow: rgba(var(--gold-rgb), 0.3);
+  /* ── Signal — the brand, deliberately cold ──
+     A warm brand hue would compete with escalation, which is why the
+     old gold had to be both at once. */
+  --signal:       #35d6b5;   /* oklch(0.82 0.14 172) */
+  --signal-rgb:   53, 214, 181;
+  --signal-2:     #93b4ff;   /* oklch(0.82 0.14 262) — equal L and C */
+  --signal-2-rgb: 147, 180, 255;
 
-  /* ── Cyan Intel Stream ── */
-  --cyan-primary: #00E5FF;
-  --cyan-dim: #006B7A;
-  --cyan-glow: rgba(var(--cyan-rgb), 0.15);
+  /* ── Escalation — the only warmth in the interface ── */
+  --escalation-critical: #ff5a4e;
+  --escalation-elevated: #ffb020;
+  --escalation-clear:    #35d6b5;
+  --escalation-info:     #93b4ff;
 
-  /* ── Alert Colors ── */
-  --alert-red: #FF3D3D;
-  --alert-orange: #FF9500;
-  --alert-green: #00E676;
-  --alert-blue: #448AFF;
+  /* ── Ink ── */
+  --ink:   #f0eae0;
+  --ink-2: #a29b90;
+  --ink-3: #6b655c;
+  --ink-4: #4e4a44;
 
-  /* ── Accent Colors (layer-specific) ── */
-  --accent-weather: #E040FB;
-  --accent-nuclear: #76FF03;
+  /* ── Hairlines — one pixel, never a glow ── */
+  --hairline:        rgba(240, 234, 222, 0.10);
+  --hairline-strong: rgba(240, 234, 222, 0.18);
+
+  /* ── Elevation — neutral, so colour is free to mean state ── */
+  --elevation-sm: 0 8px 20px -10px rgba(0, 0, 0, 0.80);
+  --elevation:    0 16px 40px -14px rgba(0, 0, 0, 0.85);
+
+  /* ── Motion ── */
+  --motion-state: 140ms cubic-bezier(0.2, 0, 0, 1);
+  --motion-panel: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ── Geometry ── */
+  --radius-control: 4px;
+  --radius-panel:   6px;
+  --radius-float:   8px;
+
+  /* ── Type ──
+     11px is the floor. Anything that wanted to be smaller gets deleted
+     rather than shrunk. */
+  --text-machine: 11px;
+  --track-machine: 0.1em;
+
+  /* ── Fonts ── */
+  --font-hud: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  --font-body: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+
+  /* ═══ LEGACY NAMES — mirrors of the above, see header comment ═══ */
+  --gold-rgb: 53, 214, 181;
+  --cyan-rgb: 147, 180, 255;
+
+  --bg-void: #0A0908;
+  --bg-primary: #0D0C0B;
+  --bg-secondary: #131110;
+  --bg-tertiary: #1D1A17;
+  --bg-panel: rgba(19, 17, 16, 0.96);
+  --bg-panel-solid: #131110;
+
+  --gold-primary: #35d6b5;
+  --gold-light: #7fe8d3;
+  --gold-dim: #1d7565;
+  --gold-glow: rgba(53, 214, 181, 0.22);
+
+  --cyan-primary: #93b4ff;
+  --cyan-dim: #3f5a94;
+  --cyan-glow: rgba(147, 180, 255, 0.15);
+
+  --alert-red: #ff5a4e;
+  --alert-orange: #ffb020;
+  --alert-green: #35d6b5;
+  --alert-blue: #93b4ff;
+
+  --accent-weather: #c88fe8;
+  --accent-nuclear: #b6e83d;
 
   /* ── Map Layers ──
      What the map itself draws with. Mirrored in src/lib/map-palette.ts, which
-     reads these back; the two copies are pinned together by its tests. */
+     reads these back; the two copies are pinned together by its tests.
+
+     Deliberately NOT restyled with the rest of the system: these are
+     categorical data colours, and satColorFor treats "still at the
+     default" as the signal that a category has not been customised. */
   --map-cctv: #00e676;
   --map-sat-comms: #00e676;
   --map-sat-military: #ff3d3d;
@@ -55,91 +121,122 @@
   --map-flight-unknown: #546e7a;
 
   /* ── Borders ── */
-  --border-primary: rgba(var(--gold-rgb), 0.15);
-  --border-secondary: rgba(var(--gold-rgb), 0.08);
-  --border-active: rgba(var(--gold-rgb), 0.4);
-  --border-cyan: rgba(var(--cyan-rgb), 0.2);
+  --border-primary: rgba(240, 234, 222, 0.10);
+  --border-secondary: rgba(240, 234, 222, 0.06);
+  --border-active: rgba(53, 214, 181, 0.45);
+  --border-cyan: rgba(147, 180, 255, 0.22);
 
   /* ── Text ── */
-  --text-primary: #E8E6E0;
-  --text-secondary: #9B978E;
-  --text-muted: #5C5A54;
-  --text-heading: #F5F0E0;
-  --text-gold: #D4AF37;
-  --text-cyan: #00E5FF;
+  --text-primary: #f0eae0;
+  --text-secondary: #a29b90;
+  --text-muted: #6b655c;
+  --text-heading: #f0eae0;
+  --text-gold: #35d6b5;
+  --text-cyan: #93b4ff;
 
   /* ── Scrollbar ── */
-  --scrollbar-thumb: rgba(var(--gold-rgb), 0.2);
-  --scrollbar-thumb-hover: rgba(var(--gold-rgb), 0.4);
+  --scrollbar-thumb: rgba(240, 234, 222, 0.14);
+  --scrollbar-thumb-hover: rgba(240, 234, 222, 0.28);
 
   /* ── Hover ── */
-  --hover-accent: rgba(var(--gold-rgb), 0.08);
-
-  /* ── Fonts ── */
-  --font-hud: 'JetBrains Mono', 'Courier New', monospace;
-  --font-body: 'Inter', -apple-system, sans-serif;
+  --hover-accent: rgba(240, 234, 222, 0.05);
 
   /* ── Spacing (responsive) ── */
   --panel-gap: 12px;
   --edge-pad: 20px;
 }
 
-/* 🔥
-   THEME TRANSITION SYSTEM
-   🔥 */
-* {
-  transition: background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+/* ═══════════════════════════════════════════════════════════════
+   MOTION
+   The old rule here was `* { transition: <4 properties> 0.6s }` — a
+   universal selector over a WebGL map that repaints constantly. It is
+   replaced by an opt-in: things you can interact with, and panels.
+   ═══════════════════════════════════════════════════════════════ */
+a,
+button,
+summary,
+input,
+select,
+textarea,
+[role="button"],
+[role="tab"],
+[role="switch"],
+.glass-panel,
+.glass-panel-sm,
+[data-transition] {
+  transition:
+    background-color var(--motion-state),
+    border-color var(--motion-state),
+    color var(--motion-state),
+    opacity var(--motion-state),
+    box-shadow var(--motion-state);
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   THEME: GHOST PROTOCOL (DEEP VIOLET / PHANTOM OPS)
+   THEME: GHOST PROTOCOL
+   Instrument in violet. Same structure, same restraint — the point of
+   a theme is that only the hues move.
    ═══════════════════════════════════════════════════════════════ */
 body.theme-ghost {
-  --gold-rgb: 179, 136, 255;
-  --cyan-rgb: 124, 77, 255;
-  --bg-void: #05000F;
-  --bg-primary: #08001A;
-  --bg-secondary: #0D0025;
-  --bg-tertiary: #140033;
-  --bg-panel: rgba(8, 0, 26, 0.92);
-  --bg-panel-solid: #0D0025;
+  --signal: #c4a0ff;
+  --signal-rgb: 196, 160, 255;
+  --signal-2: #8fb0f0;
+  --signal-2-rgb: 143, 176, 240;
 
-  --gold-primary: #B388FF;
-  --gold-light: #D1C4E9;
-  --gold-dim: #6A1B9A;
-  --gold-glow: rgba(179, 136, 255, 0.3);
+  --void: #08070C;
+  --paper: #0B0A11;
+  --surface: #121019;
+  --surface-2: #1B1826;
+  --surface-3: #252034;
 
-  --cyan-primary: #7C4DFF;
-  --cyan-dim: #4A148C;
-  --cyan-glow: rgba(124, 77, 255, 0.2);
+  --ink: #EDE7F5;
+  --ink-2: #A098B4;
+  --ink-3: #6B6480;
+  --ink-4: #4C4658;
 
-  --border-primary: rgba(179, 136, 255, 0.2);
-  --border-secondary: rgba(179, 136, 255, 0.08);
-  --border-active: rgba(179, 136, 255, 0.45);
-  --border-cyan: rgba(124, 77, 255, 0.25);
+  --gold-rgb: 196, 160, 255;
+  --cyan-rgb: 143, 176, 240;
 
-  --text-primary: #E1BEE7;
-  --text-secondary: #9575CD;
-  --text-muted: #4A148C;
-  --text-heading: #B388FF;
-  --text-gold: #B388FF;
-  --text-cyan: #7C4DFF;
+  --bg-void: #08070C;
+  --bg-primary: #0B0A11;
+  --bg-secondary: #121019;
+  --bg-tertiary: #1B1826;
+  --bg-panel: rgba(18, 16, 25, 0.96);
+  --bg-panel-solid: #121019;
 
-  --scrollbar-thumb: rgba(179, 136, 255, 0.25);
-  --scrollbar-thumb-hover: rgba(179, 136, 255, 0.5);
-  --hover-accent: rgba(179, 136, 255, 0.1);
+  --gold-primary: #c4a0ff;
+  --gold-light: #ddc8ff;
+  --gold-dim: #5f4a8a;
+  --gold-glow: rgba(196, 160, 255, 0.22);
 
-  /* Phantom pulls the map's own layers into the violet range too. The
+  --cyan-primary: #8fb0f0;
+  --cyan-dim: #46587d;
+  --cyan-glow: rgba(143, 176, 240, 0.15);
+
+  --border-primary: rgba(237, 231, 245, 0.10);
+  --border-secondary: rgba(237, 231, 245, 0.06);
+  --border-active: rgba(196, 160, 255, 0.45);
+  --border-cyan: rgba(143, 176, 240, 0.22);
+
+  --text-primary: #EDE7F5;
+  --text-secondary: #A098B4;
+  --text-muted: #6B6480;
+  --text-heading: #EDE7F5;
+  --text-gold: #c4a0ff;
+  --text-cyan: #8fb0f0;
+
+  --scrollbar-thumb: rgba(237, 231, 245, 0.14);
+  --scrollbar-thumb-hover: rgba(237, 231, 245, 0.28);
+  --hover-accent: rgba(237, 231, 245, 0.05);
+
+  /* Phantom pulls the map's own chrome layers into the violet range. The
      satellite entries are deliberately left alone: they are the signal that
      nobody has overridden that category, so the feed's mission colours show. */
-  --map-cctv: #b388ff;
-  --map-flight-civil: #b388ff;
-  --map-flight-private: #ce93d8;
-  --map-flight-gov: #d500f9;
-  --map-flight-unknown: #b388ff;
+  --map-cctv: #c4a0ff;
+  --map-flight-civil: #c4a0ff;
+  --map-flight-private: #d8bcff;
+  --map-flight-gov: #b07de8;
+  --map-flight-unknown: #8a7fa8;
 }
 
 @theme inline {
@@ -194,74 +291,68 @@ html:has(.docs-root) body {
 /* ── Scrollbar ── */
 .styled-scrollbar::-webkit-scrollbar { width: 3px; }
 .styled-scrollbar::-webkit-scrollbar-track { background: transparent; }
-.styled-scrollbar::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 10px; }
+.styled-scrollbar::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 6px; }
 .styled-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
 .styled-scrollbar { scrollbar-width: thin; scrollbar-color: var(--scrollbar-thumb) transparent; }
 
 /* ═══════════════════════════════════════════════════════════════
-   GLASS PANELS — Premium depth with micro-reflections
+   PANELS
+   Was "glass": blur(24px) over a WebGL map. Blur is expensive there,
+   and it softens exactly the thing this product sells — dense,
+   legible figures. Opaque surface, one hairline, one neutral shadow.
+   The class names are kept so every existing caller still resolves.
    ═══════════════════════════════════════════════════════════════ */
 .glass-panel {
-  background: var(--bg-panel);
-  backdrop-filter: blur(24px) saturate(1.3);
-  -webkit-backdrop-filter: blur(24px) saturate(1.3);
+  background: var(--bg-panel-solid);
   border: 1px solid var(--border-primary);
-  border-radius: 14px;
-  box-shadow:
-    0 4px 30px rgba(0, 0, 0, 0.5),
-    0 1px 0 rgba(var(--gold-rgb), 0.06) inset,
-    0 -1px 0 rgba(0, 0, 0, 0.3) inset;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: var(--radius-float);
+  box-shadow: var(--elevation);
 }
 
 .glass-panel:hover {
-  border-color: rgba(var(--gold-rgb), 0.22);
+  border-color: var(--hairline-strong);
 }
 
 .glass-panel-sm {
-  background: var(--bg-panel);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--bg-panel-solid);
   border: 1px solid var(--border-secondary);
-  border-radius: 10px;
+  border-radius: var(--radius-panel);
+  box-shadow: var(--elevation-sm);
 }
 
-/* ── Osiris Gold Glow ── */
-.osiris-glow {
-  box-shadow:
-    0 0 20px rgba(var(--gold-rgb), 0.12),
-    0 0 60px rgba(var(--gold-rgb), 0.06),
-    0 4px 30px rgba(0, 0, 0, 0.5);
-}
-
+/* ── Elevation ──
+   Formerly a coloured bloom. If depth is signalled in brand colour,
+   brand colour cannot also signal state, so it is neutral now. Both
+   class names survive; they simply no longer tint. */
+.osiris-glow,
 .osiris-glow-cyan {
-  box-shadow:
-    0 0 20px rgba(var(--cyan-rgb), 0.1),
-    0 0 60px rgba(var(--cyan-rgb), 0.05);
+  box-shadow: var(--elevation);
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HUD TEXT SYSTEM
+   MACHINE TEXT
+   Monospace earns its place in tabular figures and machine
+   identifiers. 11px is the floor and 0.1em is the only tracking.
    ═══════════════════════════════════════════════════════════════ */
 .hud-text {
   font-family: var(--font-hud);
-  letter-spacing: 0.15em;
+  letter-spacing: var(--track-machine);
   text-transform: uppercase;
 }
 
 .hud-label {
   font-family: var(--font-hud);
-  font-size: 7px;
-  letter-spacing: 0.2em;
+  font-size: var(--text-machine);
+  letter-spacing: var(--track-machine);
   text-transform: uppercase;
   color: var(--text-muted);
 }
 
 .hud-value {
   font-family: var(--font-hud);
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--gold-primary);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-primary);
   font-variant-numeric: tabular-nums;
 }
 
@@ -284,8 +375,8 @@ html:has(.docs-root) body {
 }
 
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 5px rgba(var(--gold-rgb), 0.3); }
-  50% { box-shadow: 0 0 20px rgba(var(--gold-rgb), 0.6), 0 0 40px rgba(var(--gold-rgb), 0.2); }
+  0%, 100% { box-shadow: var(--elevation-sm); }
+  50% { box-shadow: var(--elevation-sm); }
 }
 
 @keyframes data-pulse {
@@ -343,12 +434,12 @@ html:has(.docs-root) body {
   width: 10px; height: 10px; border-radius: 50%;
   background: var(--text-muted); transition: all 0.3s ease;
 }
-.layer-toggle.active::after { left: 15px; background: var(--gold-primary); box-shadow: 0 0 8px rgba(var(--gold-rgb), 0.5); }
+.layer-toggle.active::after { left: 15px; background: var(--gold-primary); box-shadow: var(--elevation-sm); }
 
 /* ── Risk Badges ── */
-.risk-critical { color: #FF3D3D; text-shadow: 0 0 8px rgba(255, 61, 61, 0.5); }
-.risk-high { color: #FF9500; text-shadow: 0 0 8px rgba(255, 149, 0, 0.3); }
-.risk-medium { color: #D4AF37; }
+.risk-critical { color: #FF3D3D; text-shadow: 0 0 8px rgba(255, 90, 78, 0.5); }
+.risk-high { color: #FF9500; text-shadow: 0 0 8px rgba(255, 176, 32, 0.3); }
+.risk-medium { color: var(--signal); }
 .risk-low { color: #00E676; }
 
 /* ── CRT Scanlines ── */
@@ -368,7 +459,7 @@ html:has(.docs-root) body {
   position: fixed;
   bottom: 0; left: 0; right: 0;
   max-height: 55vh;
-  border-radius: 16px 16px 0 0;
+  border-radius: 8px 8px 0 0;
   overflow-y: auto;
   z-index: 400;
   transform: translateY(100%);
@@ -408,7 +499,7 @@ html:has(.docs-root) body {
 .mobile-nav-btn {
   display: flex; flex-direction: column; align-items: center; gap: 1px;
   padding: 5px 6px; border-radius: 8px;
-  font-family: var(--font-hud); font-size: 6px; letter-spacing: 0.08em;
+  font-family: var(--font-hud); font-size: 10px; letter-spacing: 0.02em;
   color: var(--text-muted); background: transparent;
   border: none; cursor: pointer; transition: all 0.2s ease;
   text-transform: uppercase;
@@ -455,7 +546,7 @@ html:has(.docs-root) body {
   .maplibregl-popup-close-button { font-size: 18px !important; padding: 4px 8px !important; }
 
   /* Glass panel mobile tweaks */
-  .glass-panel { border-radius: 12px; }
+  .glass-panel { border-radius: 6px; }
 
   /* Status bar mobile */
   .status-bar-desktop { display: none !important; }
@@ -467,7 +558,7 @@ html:has(.docs-root) body {
 /* Small phones */
 @media (max-width: 390px) {
   :root { --edge-pad: 4px; }
-  .mobile-nav-btn { padding: 4px 3px; font-size: 5px; }
+  .mobile-nav-btn { padding: 4px 3px; }
   .mobile-nav-btn svg { width: 14px; height: 14px; }
 }
 
@@ -478,7 +569,7 @@ html:has(.docs-root) body {
   .status-bar-desktop { display: none !important; }
   .mobile-nav { display: block; }
   .mobile-nav-inner { padding: 4px 2px 2px; }
-  .mobile-nav-btn { padding: 3px 4px; font-size: 5px; }
+  .mobile-nav-btn { padding: 3px 4px; }
   .mobile-nav-btn svg { width: 14px; height: 14px; }
   .mobile-nav-btn span { display: none; }
   .mobile-drawer-handle { margin: 4px auto 4px; }
@@ -549,10 +640,8 @@ html:has(.docs-root) body {
    ───────────────────────────────────────────────────────────── */
 .glass-panel-interactive {
   background: var(--bg-panel);
-  backdrop-filter: blur(24px) saturate(1.3);
-  -webkit-backdrop-filter: blur(24px) saturate(1.3);
   border: 1px solid var(--border-primary);
-  border-radius: 14px;
+  border-radius: 8px;
   box-shadow:
     0 4px 30px rgba(0, 0, 0, 0.5),
     0 1px 0 rgba(var(--gold-rgb), 0.06) inset,
@@ -780,8 +869,8 @@ html:has(.docs-root) body {
 .stat-value-glow--alert {
   color: var(--alert-red);
   text-shadow:
-    0 0 8px rgba(255, 61, 61, 0.3),
-    0 0 20px rgba(255, 61, 61, 0.15);
+    0 0 8px rgba(255, 90, 78, 0.3),
+    0 0 20px rgba(255, 90, 78, 0.15);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -797,7 +886,7 @@ html:has(.docs-root) body {
   overflow: hidden;
   font-family: var(--font-hud);
   font-size: 11px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-primary);
   background: rgba(var(--gold-rgb), 0.08);
@@ -899,18 +988,18 @@ html:has(.docs-root) body {
    8. THREAT LEVEL BADGES — Color-coded with pulse animations
    ───────────────────────────────────────────────────────────── */
 @keyframes threat-pulse-critical {
-  0%, 100% { box-shadow: 0 0 6px rgba(255, 61, 61, 0.4), inset 0 0 6px rgba(255, 61, 61, 0.1); }
-  50% { box-shadow: 0 0 16px rgba(255, 61, 61, 0.6), inset 0 0 10px rgba(255, 61, 61, 0.15); }
+  0%, 100% { box-shadow: 0 0 6px rgba(255, 90, 78, 0.4), inset 0 0 6px rgba(255, 90, 78, 0.1); }
+  50% { box-shadow: 0 0 16px rgba(255, 90, 78, 0.6), inset 0 0 10px rgba(255, 90, 78, 0.15); }
 }
 
 @keyframes threat-pulse-high {
-  0%, 100% { box-shadow: 0 0 6px rgba(255, 149, 0, 0.3), inset 0 0 6px rgba(255, 149, 0, 0.08); }
-  50% { box-shadow: 0 0 14px rgba(255, 149, 0, 0.5), inset 0 0 8px rgba(255, 149, 0, 0.12); }
+  0%, 100% { box-shadow: 0 0 6px rgba(255, 176, 32, 0.3), inset 0 0 6px rgba(255, 176, 32, 0.08); }
+  50% { box-shadow: 0 0 14px rgba(255, 176, 32, 0.5), inset 0 0 8px rgba(255, 176, 32, 0.12); }
 }
 
 @keyframes threat-pulse-elevated {
-  0%, 100% { box-shadow: 0 0 4px rgba(var(--gold-rgb), 0.25); }
-  50% { box-shadow: 0 0 10px rgba(var(--gold-rgb), 0.4); }
+  0%, 100% { box-shadow: var(--elevation-sm); }
+  50% { box-shadow: var(--elevation-sm); }
 }
 
 [class^="threat-badge-"],
@@ -919,9 +1008,9 @@ html:has(.docs-root) body {
   align-items: center;
   gap: 6px;
   font-family: var(--font-hud);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 4px 10px;
   border-radius: 6px;
@@ -930,15 +1019,15 @@ html:has(.docs-root) body {
 
 .threat-badge-critical {
   color: var(--alert-red);
-  background: rgba(255, 61, 61, 0.1);
-  border-color: rgba(255, 61, 61, 0.3);
+  background: rgba(255, 90, 78, 0.1);
+  border-color: rgba(255, 90, 78, 0.3);
   animation: threat-pulse-critical 1.8s ease-in-out infinite;
 }
 
 .threat-badge-high {
   color: var(--alert-orange);
-  background: rgba(255, 149, 0, 0.1);
-  border-color: rgba(255, 149, 0, 0.25);
+  background: rgba(255, 176, 32, 0.1);
+  border-color: rgba(255, 176, 32, 0.25);
   animation: threat-pulse-high 2.2s ease-in-out infinite;
 }
 
@@ -951,9 +1040,9 @@ html:has(.docs-root) body {
 
 .threat-badge-nominal {
   color: var(--alert-green);
-  background: rgba(0, 230, 118, 0.08);
-  border-color: rgba(0, 230, 118, 0.2);
-  box-shadow: 0 0 4px rgba(0, 230, 118, 0.15);
+  background: rgba(53, 214, 181, 0.08);
+  border-color: rgba(53, 214, 181, 0.2);
+  box-shadow: 0 0 4px rgba(53, 214, 181, 0.15);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -977,14 +1066,14 @@ html:has(.docs-root) body {
   background: var(--hover-accent);
   border-color: var(--border-primary);
   color: var(--text-primary);
-  box-shadow: 0 0 12px rgba(var(--gold-rgb), 0.06);
+  box-shadow: var(--elevation-sm);
 }
 
 .data-grid-cell--active {
   background: rgba(var(--gold-rgb), 0.06);
   border-color: var(--border-active);
   color: var(--gold-primary);
-  box-shadow: 0 0 15px rgba(var(--gold-rgb), 0.08);
+  box-shadow: var(--elevation-sm);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -1010,8 +1099,6 @@ html:has(.docs-root) body {
   letter-spacing: 0.06em;
   color: var(--text-primary);
   background: rgba(12, 14, 26, 0.92);
-  backdrop-filter: blur(20px) saturate(1.2);
-  -webkit-backdrop-filter: blur(20px) saturate(1.2);
   border: 1px solid var(--border-primary);
   border-radius: 8px;
   box-shadow:
@@ -1077,7 +1164,7 @@ html:has(.docs-root) body {
     var(--gold-light) 100%
   );
   border-radius: 4px;
-  box-shadow: 0 0 12px var(--gold-glow);
+  box-shadow: var(--elevation-sm);
   transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
@@ -1105,7 +1192,7 @@ html:has(.docs-root) body {
     var(--cyan-dim) 0%,
     var(--cyan-primary) 100%
   );
-  box-shadow: 0 0 12px var(--cyan-glow);
+  box-shadow: var(--elevation-sm);
 }
 
 /* Indeterminate / loading state */
@@ -1128,7 +1215,7 @@ html:has(.docs-root) body {
   position: relative;
   width: 42px;
   height: 22px;
-  border-radius: 12px;
+  border-radius: 6px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
@@ -1159,7 +1246,7 @@ html:has(.docs-root) body {
 .layer-toggle-premium.active {
   background: rgba(var(--gold-rgb), 0.2);
   border-color: var(--gold-primary);
-  box-shadow: 0 0 16px rgba(var(--gold-rgb), 0.15);
+  box-shadow: var(--elevation-sm);
 }
 
 .layer-toggle-premium.active::after {
@@ -1190,7 +1277,7 @@ html:has(.docs-root) body {
 .layer-toggle-premium--cyan.active {
   background: rgba(var(--cyan-rgb), 0.15);
   border-color: var(--cyan-primary);
-  box-shadow: 0 0 16px rgba(var(--cyan-rgb), 0.12);
+  box-shadow: var(--elevation-sm);
 }
 
 .layer-toggle-premium--cyan.active::after {
@@ -1223,7 +1310,7 @@ html:has(.docs-root) body {
   height: 10px;
   border-radius: 50%;
   background: var(--alert-red);
-  box-shadow: 0 0 6px rgba(255, 61, 61, 0.5);
+  box-shadow: 0 0 6px rgba(255, 90, 78, 0.5);
 }
 
 .notification-pulse::before {
@@ -1239,7 +1326,7 @@ html:has(.docs-root) body {
 
 .notification-pulse--gold {
   background: var(--gold-primary);
-  box-shadow: 0 0 6px var(--gold-glow);
+  box-shadow: var(--elevation-sm);
 }
 
 .notification-pulse--gold::before {
@@ -1248,7 +1335,7 @@ html:has(.docs-root) body {
 
 .notification-pulse--cyan {
   background: var(--cyan-primary);
-  box-shadow: 0 0 6px var(--cyan-glow);
+  box-shadow: var(--elevation-sm);
 }
 
 .notification-pulse--cyan::before {
@@ -1260,7 +1347,7 @@ html:has(.docs-root) body {
   width: 18px;
   height: 18px;
   font-family: var(--font-hud);
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 700;
   color: #fff;
 }
@@ -1418,7 +1505,7 @@ html:has(.docs-root) body {
   width: 40px; height: 40px;
   background: radial-gradient(circle, rgba(var(--gold-rgb),0.4) 0%, transparent 70%);
   border: 2px solid var(--gold-primary);
-  box-shadow: 0 0 30px rgba(var(--gold-rgb),0.4), 0 0 60px rgba(var(--gold-rgb),0.15), inset 0 0 20px rgba(var(--gold-rgb),0.2);
+  box-shadow: 0 0 24px rgba(var(--gold-rgb),0.14), inset 0 0 12px rgba(var(--gold-rgb),0.08);
 }
 .splash-ring--core::after {
   content: '';
@@ -1434,7 +1521,7 @@ html:has(.docs-root) body {
   top: 0; left: 0; right: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent 0%, var(--gold-primary) 30%, var(--cyan-primary) 70%, transparent 100%);
-  box-shadow: 0 0 20px var(--gold-primary), 0 0 60px rgba(var(--gold-rgb),0.3);
+  box-shadow: 0 0 16px rgba(var(--gold-rgb),0.30);
   animation: splash-scanline 2.5s ease-in-out;
   pointer-events: none;
   z-index: 10;
@@ -1478,8 +1565,8 @@ html:has(.docs-root) body {
 }
 .gotham-stat__label {
   font-family: var(--font-hud);
-  font-size: 8px;
-  letter-spacing: 0.15em;
+  font-size: 11px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
@@ -1492,7 +1579,7 @@ html:has(.docs-root) body {
   padding: 2px 8px;
   border-radius: 3px;
   font-family: var(--font-hud);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1500,10 +1587,10 @@ html:has(.docs-root) body {
 }
 .gotham-tag--critical { background: rgba(255,61,61,0.12); color: #FF3D3D; border-color: rgba(255,61,61,0.3); }
 .gotham-tag--high { background: rgba(255,149,0,0.12); color: #FF9500; border-color: rgba(255,149,0,0.3); }
-.gotham-tag--medium { background: rgba(var(--gold-rgb),0.12); color: #D4AF37; border-color: rgba(var(--gold-rgb),0.3); }
+.gotham-tag--medium { background: rgba(var(--gold-rgb),0.12); color: var(--signal); border-color: rgba(var(--gold-rgb),0.3); }
 .gotham-tag--low { background: rgba(0,230,118,0.12); color: #00E676; border-color: rgba(0,230,118,0.3); }
 .gotham-tag--info { background: rgba(var(--cyan-rgb),0.08); color: var(--cyan-primary); border-color: rgba(var(--cyan-rgb),0.2); }
-.gotham-tag--classified { background: rgba(var(--gold-rgb),0.08); color: var(--gold-primary); border-color: rgba(var(--gold-rgb),0.25); letter-spacing: 0.2em; }
+.gotham-tag--classified { background: rgba(var(--gold-rgb),0.08); color: var(--gold-primary); border-color: rgba(var(--gold-rgb),0.25); letter-spacing: 0.1em; }
 
 /* ── Gotham Section Divider ── */
 .gotham-divider {
@@ -1524,8 +1611,8 @@ html:has(.docs-root) body {
 }
 .gotham-divider__label {
   font-family: var(--font-hud);
-  font-size: 8px;
-  letter-spacing: 0.2em;
+  font-size: 11px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
   white-space: nowrap;
@@ -1569,8 +1656,6 @@ html:has(.docs-root) body {
     rgba(12, 14, 26, 0.96) 0%,
     rgba(6, 6, 12, 0.98) 100%
   );
-  backdrop-filter: blur(20px) saturate(1.2);
-  -webkit-backdrop-filter: blur(20px) saturate(1.2);
   border-bottom: 1px solid transparent;
   /* Gradient border via background-image on pseudo-element */
   box-shadow:
@@ -1628,7 +1713,7 @@ html:has(.docs-root) body {
 .gotham-command-bar__title {
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-heading);
 }
@@ -1655,7 +1740,7 @@ html:has(.docs-root) body {
   color: var(--gold-primary);
   border-color: var(--border-primary);
   background: rgba(var(--gold-rgb), 0.06);
-  box-shadow: 0 0 12px rgba(var(--gold-rgb), 0.08);
+  box-shadow: var(--elevation-sm);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -1667,11 +1752,9 @@ html:has(.docs-root) body {
   position: relative;
   padding: 20px 22px;
   background: var(--bg-panel);
-  backdrop-filter: blur(16px) saturate(1.2);
-  -webkit-backdrop-filter: blur(16px) saturate(1.2);
   border: 1px solid var(--border-secondary);
   border-left: 3px solid var(--gold-dim);
-  border-radius: 10px;
+  border-radius: 6px;
   box-shadow:
     0 2px 16px rgba(0, 0, 0, 0.35),
     0 1px 0 rgba(var(--gold-rgb), 0.04) inset;
@@ -1711,14 +1794,14 @@ html:has(.docs-root) body {
 
 /* Variant: Alert accent for critical items */
 .gotham-card--alert {
-  border-left-color: rgba(255, 61, 61, 0.4);
+  border-left-color: rgba(255, 90, 78, 0.4);
 }
 
 .gotham-card--alert:hover {
   border-left-color: var(--alert-red);
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(255, 61, 61, 0.06);
+    0 0 20px rgba(255, 90, 78, 0.06);
 }
 
 .gotham-card__header {
@@ -1732,7 +1815,7 @@ html:has(.docs-root) body {
   font-family: var(--font-hud);
   font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-heading);
 }
@@ -1792,15 +1875,15 @@ html:has(.docs-root) body {
 .gotham-stat__value--alert {
   color: var(--alert-red);
   text-shadow:
-    0 0 10px rgba(255, 61, 61, 0.25),
-    0 0 30px rgba(255, 61, 61, 0.1);
+    0 0 10px rgba(255, 90, 78, 0.25),
+    0 0 30px rgba(255, 90, 78, 0.1);
 }
 
 .gotham-stat__label {
   font-family: var(--font-hud);
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
@@ -1829,7 +1912,7 @@ html:has(.docs-root) body {
 }
 
 .gotham-stat--compact .gotham-stat__label {
-  font-size: 7px;
+  font-size: 11px;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -1873,9 +1956,9 @@ html:has(.docs-root) body {
   padding: 0 14px;
   background: var(--bg-secondary);
   font-family: var(--font-hud);
-  font-size: 7px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
   white-space: nowrap;
@@ -1914,9 +1997,9 @@ html:has(.docs-root) body {
   gap: 5px;
   padding: 3px 10px;
   font-family: var(--font-hud);
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-secondary);
   background: rgba(255, 255, 255, 0.04);
@@ -1939,28 +2022,28 @@ html:has(.docs-root) body {
 /* ── Priority Level Tags ── */
 .gotham-tag-critical {
   color: var(--alert-red);
-  background: rgba(255, 61, 61, 0.1);
-  border-color: rgba(255, 61, 61, 0.25);
-  box-shadow: 0 0 8px rgba(255, 61, 61, 0.1);
+  background: rgba(255, 90, 78, 0.1);
+  border-color: rgba(255, 90, 78, 0.25);
+  box-shadow: 0 0 8px rgba(255, 90, 78, 0.1);
 }
 
 .gotham-tag-critical:hover {
-  background: rgba(255, 61, 61, 0.15);
-  border-color: rgba(255, 61, 61, 0.35);
-  box-shadow: 0 0 14px rgba(255, 61, 61, 0.15);
+  background: rgba(255, 90, 78, 0.15);
+  border-color: rgba(255, 90, 78, 0.35);
+  box-shadow: 0 0 14px rgba(255, 90, 78, 0.15);
 }
 
 .gotham-tag-high {
   color: var(--alert-orange);
-  background: rgba(255, 149, 0, 0.08);
-  border-color: rgba(255, 149, 0, 0.2);
-  box-shadow: 0 0 6px rgba(255, 149, 0, 0.08);
+  background: rgba(255, 176, 32, 0.08);
+  border-color: rgba(255, 176, 32, 0.2);
+  box-shadow: 0 0 6px rgba(255, 176, 32, 0.08);
 }
 
 .gotham-tag-high:hover {
-  background: rgba(255, 149, 0, 0.13);
-  border-color: rgba(255, 149, 0, 0.3);
-  box-shadow: 0 0 12px rgba(255, 149, 0, 0.12);
+  background: rgba(255, 176, 32, 0.13);
+  border-color: rgba(255, 176, 32, 0.3);
+  box-shadow: 0 0 12px rgba(255, 176, 32, 0.12);
 }
 
 .gotham-tag-medium {
@@ -1976,13 +2059,13 @@ html:has(.docs-root) body {
 
 .gotham-tag-low {
   color: var(--alert-green);
-  background: rgba(0, 230, 118, 0.07);
-  border-color: rgba(0, 230, 118, 0.15);
+  background: rgba(53, 214, 181, 0.07);
+  border-color: rgba(53, 214, 181, 0.15);
 }
 
 .gotham-tag-low:hover {
-  background: rgba(0, 230, 118, 0.1);
-  border-color: rgba(0, 230, 118, 0.25);
+  background: rgba(53, 214, 181, 0.1);
+  border-color: rgba(53, 214, 181, 0.25);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -2020,7 +2103,7 @@ html:has(.docs-root) body {
   height: 6px;
   border-radius: 50%;
   background: var(--gold-primary);
-  box-shadow: 0 0 6px var(--gold-glow);
+  box-shadow: var(--elevation-sm);
   z-index: 2;
 }
 
@@ -2056,7 +2139,7 @@ html:has(.docs-root) body {
 /* Variant: Cyan for data streams */
 .gotham-pulse-ring--cyan::before {
   background: var(--cyan-primary);
-  box-shadow: 0 0 6px var(--cyan-glow);
+  box-shadow: var(--elevation-sm);
 }
 
 .gotham-pulse-ring--cyan::after,
@@ -2067,7 +2150,7 @@ html:has(.docs-root) body {
 /* Variant: Alert (red) for critical status */
 .gotham-pulse-ring--alert::before {
   background: var(--alert-red);
-  box-shadow: 0 0 8px rgba(255, 61, 61, 0.4);
+  box-shadow: 0 0 8px rgba(255, 90, 78, 0.4);
 }
 
 .gotham-pulse-ring--alert::after,
@@ -2078,7 +2161,7 @@ html:has(.docs-root) body {
 /* Variant: Nominal (green) */
 .gotham-pulse-ring--nominal::before {
   background: var(--alert-green);
-  box-shadow: 0 0 6px rgba(0, 230, 118, 0.3);
+  box-shadow: 0 0 6px rgba(53, 214, 181, 0.3);
 }
 
 .gotham-pulse-ring--nominal::after,
@@ -2159,7 +2242,7 @@ html:has(.docs-root) body {
 .gotham-sidebar::-webkit-scrollbar-track { background: transparent; }
 .gotham-sidebar::-webkit-scrollbar-thumb {
   background: var(--scrollbar-thumb);
-  border-radius: 10px;
+  border-radius: 6px;
 }
 .gotham-sidebar::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-thumb-hover);
@@ -2183,9 +2266,9 @@ html:has(.docs-root) body {
 
 .gotham-sidebar__section-title {
   font-family: var(--font-hud);
-  font-size: 7px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 10px;
@@ -2235,9 +2318,9 @@ html:has(.docs-root) body {
   align-items: center;
   padding: 2px 8px;
   font-family: var(--font-hud);
-  font-size: 7px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
   background: rgba(255, 255, 255, 0.03);
@@ -2266,15 +2349,15 @@ html:has(.docs-root) body {
 /* Variant: Green — operational / live */
 .gotham-badge--live {
   color: var(--alert-green);
-  background: rgba(0, 230, 118, 0.06);
-  border-color: rgba(0, 230, 118, 0.15);
+  background: rgba(53, 214, 181, 0.06);
+  border-color: rgba(53, 214, 181, 0.15);
 }
 
 /* Variant: Red — alert / error */
 .gotham-badge--alert {
   color: var(--alert-red);
-  background: rgba(255, 61, 61, 0.08);
-  border-color: rgba(255, 61, 61, 0.2);
+  background: rgba(255, 90, 78, 0.08);
+  border-color: rgba(255, 90, 78, 0.2);
 }
 
 /* With dot indicator */
@@ -2375,12 +2458,12 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
   background: var(--gold-primary);
   cursor: pointer;
-  box-shadow: 0 0 8px rgba(212,175,55,0.4);
+  box-shadow: 0 0 8px rgba(53,214,181,0.4);
   border: 2px solid rgba(0,0,0,0.3);
   transition: box-shadow 0.15s;
 }
 input[type="range"]::-webkit-slider-thumb:hover {
-  box-shadow: 0 0 14px rgba(212,175,55,0.6);
+  box-shadow: 0 0 14px rgba(53,214,181,0.6);
 }
 input[type="range"]::-moz-range-thumb {
   width: 14px;
@@ -2388,7 +2471,7 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 50%;
   background: var(--gold-primary);
   cursor: pointer;
-  box-shadow: 0 0 8px rgba(212,175,55,0.4);
+  box-shadow: 0 0 8px rgba(53,214,181,0.4);
   border: 2px solid rgba(0,0,0,0.3);
 }
 
@@ -2451,7 +2534,7 @@ input[type="range"]::-moz-range-thumb {
 .instrument-title {
   font-family: var(--font-hud);
   font-size: 11px;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-heading);
 }
@@ -2469,8 +2552,8 @@ input[type="range"]::-moz-range-thumb {
 /* Small state chip — STANDBY / READY / LIVE. */
 .instrument-chip {
   font-family: var(--font-hud);
-  font-size: 9px;
-  letter-spacing: 0.18em;
+  font-size: 11px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 2px 6px;
   border-radius: 4px;

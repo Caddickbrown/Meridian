@@ -31,7 +31,7 @@ function Head({ title, icon: Icon, color, right }: { title: string; icon: any; c
   return (
     <div className="flex items-center gap-2 mt-3 mb-1.5 first:mt-0">
       <Icon className="w-3.5 h-3.5" style={{ color }} />
-      <span className="text-[11px] font-mono font-bold tracking-widest" style={{ color }}>{title}</span>
+      <span className="text-[11px] font-mono font-bold tracking-[0.1em]" style={{ color }}>{title}</span>
       <div className="flex-1 h-px" style={{ background: `${color}30` }} />
       {right && <span className="text-[10px] font-mono text-[var(--text-muted)]">{right}</span>}
     </div>

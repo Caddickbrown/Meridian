@@ -85,7 +85,7 @@ export default function AiOverview({ mode, payload, accent = '#7C4DFF' }: AiOver
             >
               {/* Header row */}
               <div className="flex items-center justify-between mb-1.5">
-                <span className="font-mono tracking-widest text-[9px]" style={{ color: accent }}>
+                <span className="font-mono tracking-[0.1em] text-[9px]" style={{ color: accent }}>
                   {result ? `MERIDIAN ${result.generatedBy === 'gemini' ? 'AI' : 'ANALYST'}` : 'MERIDIAN ANALYST'}
                 </span>
                 <div className="flex items-center gap-2">

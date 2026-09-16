@@ -31,7 +31,7 @@ export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] px-6 py-16">
       <div className="mx-auto max-w-3xl">
-        <Link href="/" className="text-[11px] font-mono tracking-widest text-[var(--text-muted)] hover:text-[var(--cyan-primary)]">
+        <Link href="/" className="text-[11px] font-mono tracking-[0.1em] text-[var(--text-muted)] hover:text-[var(--cyan-primary)]">
           ← OSIRIS
         </Link>
 
@@ -43,7 +43,7 @@ export default function PrivacyPage() {
         </p>
 
         <section className="mt-8 rounded-lg border border-[var(--alert-orange)]/30 bg-[var(--alert-orange)]/5 p-4">
-          <h2 className="text-sm font-bold tracking-widest text-[var(--alert-orange)]">
+          <h2 className="text-sm font-bold tracking-[0.1em] text-[var(--alert-orange)]">
             YOUR QUERY LEAVES THIS INSTANCE
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
@@ -57,7 +57,7 @@ export default function PrivacyPage() {
         </section>
 
         <section className="mt-8">
-          <h2 className="text-sm font-bold tracking-widest">AUTOMATIC IP GEOLOCATION</h2>
+          <h2 className="text-sm font-bold tracking-[0.1em]">AUTOMATIC IP GEOLOCATION</h2>
           <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
             Three seconds after the dashboard loads, the browser calls <code>/api/geo</code>. The
             server reads your apparent IP address from the usual proxy headers and asks an external
@@ -69,10 +69,10 @@ export default function PrivacyPage() {
         </section>
 
         <section className="mt-8">
-          <h2 className="text-sm font-bold tracking-widest">WHERE DATA GOES</h2>
+          <h2 className="text-sm font-bold tracking-[0.1em]">WHERE DATA GOES</h2>
           <div className="mt-3 overflow-x-auto">
             <table className="w-full text-left text-[12px]">
-              <thead className="text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
+              <thead className="text-[10px] uppercase tracking-[0.1em] text-[var(--text-muted)]">
                 <tr className="border-b border-[var(--border-primary)]">
                   <th className="py-2 pr-4 font-medium">Service</th>
                   <th className="py-2 pr-4 font-medium">What is sent</th>
@@ -97,7 +97,7 @@ export default function PrivacyPage() {
         </section>
 
         <section className="mt-8">
-          <h2 className="text-sm font-bold tracking-widest">AI FEATURES</h2>
+          <h2 className="text-sm font-bold tracking-[0.1em]">AI FEATURES</h2>
           <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
             Briefings and correlation are produced by Google Gemini from the feed context the
             request carries. Do not paste confidential source material into them. A briefing is a
@@ -107,7 +107,7 @@ export default function PrivacyPage() {
         </section>
 
         <section className="mt-8">
-          <h2 className="text-sm font-bold tracking-widest">SCANNING</h2>
+          <h2 className="text-sm font-bold tracking-[0.1em]">SCANNING</h2>
           <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
             Active scans are rate limited, restricted to a safe subset, and blocked against private
             and reserved address space. That is a safety floor, not permission: scanning

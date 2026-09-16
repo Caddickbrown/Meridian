@@ -159,7 +159,7 @@ export default function DrawingToolbar({
   return (
     <div className="pointer-events-auto">
       <div 
-        className="w-[280px] bg-black/90 backdrop-blur-xl border rounded-lg overflow-hidden flex flex-col glass-panel transition-all duration-500"
+        className="w-[280px] bg-black/90 border rounded-lg overflow-hidden flex flex-col glass-panel transition-all duration-500"
         style={{
           boxShadow: flash 
             ? '0 0 20px #00E67666, 0 25px 50px -12px rgba(0,0,0,0.5)' 
@@ -171,7 +171,7 @@ export default function DrawingToolbar({
         <div className="px-4 py-3 border-b border-white/[0.06]">
           <div className="flex items-center gap-2 mb-2">
             <Pentagon className="w-3.5 h-3.5 text-[var(--cyan-primary)]" />
-            <span className="text-[12px] font-mono tracking-[0.2em] text-white/90 font-bold">DRAWING TOOLS</span>
+            <span className="text-[12px] font-mono tracking-[0.1em] text-white/90 font-bold">DRAWING TOOLS</span>
           </div>
           
           <div className="flex items-center justify-between text-[10px] font-mono text-white/50 bg-white/5 rounded px-2 py-1.5 border border-white/[0.04]">
@@ -192,7 +192,7 @@ export default function DrawingToolbar({
           {/* Naming the step is the difference between a toolbar and a puzzle:
               without it, nothing tells you a mode must be picked before the map
               will respond to a click. */}
-          <p className="text-[10px] font-mono tracking-[0.18em] text-white/40 mb-2">
+          <p className="text-[10px] font-mono tracking-[0.1em] text-white/40 mb-2">
             {drawMode ? 'STEP 2 — NOW CLICK THE MAP' : 'STEP 1 — CHOOSE A SHAPE'}
           </p>
           <div className="grid grid-cols-2 gap-1.5">
@@ -363,7 +363,7 @@ export default function DrawingToolbar({
                     return (
                       <div className="mt-2 pt-2 border-t border-white/[0.06]">
                         <div className="flex items-baseline gap-2 mb-1.5">
-                          <span className="text-[10px] font-mono tracking-[0.2em] text-white/40">CONTENTS</span>
+                          <span className="text-[10px] font-mono tracking-[0.1em] text-white/40">CONTENTS</span>
                           <span className="text-[11px] font-mono text-white tabular-nums">{report.total.toLocaleString()}</span>
                           <span className="text-[10px] font-mono text-white/30">object{report.total === 1 ? "" : "s"}</span>
                         </div>
@@ -444,7 +444,7 @@ export default function DrawingToolbar({
           <div className="border-t border-white/[0.04] bg-black/50">
             <div className="flex items-center gap-2 px-3 py-1.5">
               <Radar className="w-3 h-3 text-[var(--alert-green)] animate-pulse" />
-              <span className="text-[10px] font-mono tracking-[0.2em] text-[var(--alert-green)] flex-1">
+              <span className="text-[10px] font-mono tracking-[0.1em] text-[var(--alert-green)] flex-1">
                 WATCHING {watched.size}
               </span>
               <span className="text-[10px] font-mono text-white/30 tabular-nums">{watchEvents.length} events</span>
@@ -473,14 +473,14 @@ export default function DrawingToolbar({
           <div className="p-3 border-t border-white/[0.04] flex items-center gap-2 bg-black/60">
             <button 
               onClick={onExportGeoJSON} 
-              className="flex-1 flex items-center justify-center gap-1.5 px-2 py-2 rounded text-[10px] font-mono tracking-[0.2em] bg-[var(--cyan-primary)]/10 border border-[var(--cyan-primary)]/30 text-[var(--cyan-primary)]/80 hover:text-[var(--cyan-primary)] hover:bg-[var(--cyan-primary)]/20 hover:border-[var(--cyan-primary)]/50 transition"
+              className="flex-1 flex items-center justify-center gap-1.5 px-2 py-2 rounded text-[10px] font-mono tracking-[0.1em] bg-[var(--cyan-primary)]/10 border border-[var(--cyan-primary)]/30 text-[var(--cyan-primary)]/80 hover:text-[var(--cyan-primary)] hover:bg-[var(--cyan-primary)]/20 hover:border-[var(--cyan-primary)]/50 transition"
             >
               <Download className="w-3 h-3" />
               EXPORT GEOJSON
             </button>
             <button 
               onClick={onClearAll} 
-              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded text-[10px] font-mono tracking-widest bg-[#FF3D57]/10 border border-[#FF3D57]/20 text-[#FF3D57]/60 hover:text-[#FF3D57] hover:bg-[#FF3D57]/20 transition"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded text-[10px] font-mono tracking-[0.1em] bg-[#FF3D57]/10 border border-[#FF3D57]/20 text-[#FF3D57]/60 hover:text-[#FF3D57] hover:bg-[#FF3D57]/20 transition"
             >
               <Trash2 className="w-3 h-3" />
               CLEAR

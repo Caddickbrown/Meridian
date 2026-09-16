@@ -38,7 +38,7 @@ export default function KeyboardShortcuts() {
           className="fixed inset-0 z-[500] flex items-center justify-center pointer-events-auto"
           onClick={() => setIsOpen(false)}
         >
-          <div className="absolute inset-0 bg-[var(--bg-void)]/80 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-[var(--bg-void)]/80" />
           <motion.div
             onClick={e => e.stopPropagation()}
             className="relative glass-panel p-6 w-[320px] osiris-glow"
@@ -62,7 +62,7 @@ export default function KeyboardShortcuts() {
                 </div>
               ))}
             </div>
-            <div className="mt-4 text-center text-[9px] font-mono text-[var(--text-muted)] tracking-widest">
+            <div className="mt-4 text-center text-[9px] font-mono text-[var(--text-muted)] tracking-[0.1em]">
               PRESS [?] OR [ESC] TO CLOSE
             </div>
           </motion.div>

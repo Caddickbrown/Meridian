@@ -47,7 +47,7 @@ export default function MapControls({ mapRef, onInteract }: MapControlsProps) {
       transition={{ duration: 0.3, delay: 0.4 }}
       className="absolute right-2 bottom-[112px] md:bottom-12 z-[240] pointer-events-auto" data-map-controls>
       <div role="group" aria-label="Map camera controls"
-        className="flex items-center gap-[3px] p-[3px] rounded-xl border border-[var(--border-secondary)] bg-black/60 backdrop-blur-md shadow-lg transition-opacity opacity-85 hover:opacity-100 focus-within:opacity-100">
+        className="flex items-center gap-[3px] p-[3px] rounded-xl border border-[var(--border-secondary)] bg-black/60 shadow-lg transition-opacity opacity-85 hover:opacity-100 focus-within:opacity-100">
         <div className="flex flex-col gap-[3px]">
           <Btn label="Zoom in" move={{ kind: 'zoom', dir: 1 }} icon={Plus} disabled={limits.max} press={press} release={release} step={step} />
           <Btn label="Zoom out" move={{ kind: 'zoom', dir: -1 }} icon={Minus} disabled={limits.min} press={press} release={release} step={step} />

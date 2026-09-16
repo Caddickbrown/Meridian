@@ -143,7 +143,7 @@ export default function GlobalStatusBar() {
       transition={{ delay: 3, duration: 0.6 }}
       className="hidden md:block absolute bottom-0 left-0 right-0 z-[210] pointer-events-none"
     >
-      <div className="h-[28px] overflow-hidden bg-[#0a0a0f]/95 border-t border-white/[0.06] flex items-center text-[10px] font-mono tracking-wider backdrop-blur-xl relative">
+      <div className="h-[28px] overflow-hidden bg-[#0a0a0f]/95 border-t border-white/[0.06] flex items-center text-[10px] font-mono tracking-wider relative">
         {/* Animated scan line */}
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--cyan-primary)]/30 to-transparent" style={{ animation: 'hud-scanline 4s linear infinite' }} />
         
@@ -166,13 +166,13 @@ export default function GlobalStatusBar() {
             className="h-full px-3 flex items-center gap-1.5 bg-[var(--gold-primary)]/10 text-[var(--gold-primary)]/80 hover:text-[var(--gold-primary)] hover:bg-[var(--gold-primary)]/25 border-r border-white/[0.04] transition-all duration-200"
           >
             <DocsIcon />
-            <span className="text-[9px] font-bold tracking-[0.15em] uppercase">Docs</span>
+            <span className="text-[9px] font-bold tracking-[0.1em] uppercase">Docs</span>
           </Link>
           {/* Data & privacy — what leaves this instance, and when */}
           <Link href="/privacy" title="Data & Privacy" aria-label="Data and Privacy"
             className="h-full px-3 hidden sm:flex items-center text-white/40 hover:text-white hover:bg-white/[0.04] border-r border-white/[0.04] transition-all duration-200"
           >
-            <span className="text-[9px] font-bold tracking-[0.15em] uppercase">Privacy</span>
+            <span className="text-[9px] font-bold tracking-[0.1em] uppercase">Privacy</span>
           </Link>
         </div>
 
@@ -218,7 +218,7 @@ export default function GlobalStatusBar() {
           {/* Status indicator */}
           <div className="h-full px-3 flex items-center gap-1.5">
             <div className="w-1.5 h-1.5 rounded-full bg-[#00E676] animate-pulse" />
-            <span className="text-[#00E676]/70 text-[9px] tracking-[0.2em]">ONLINE</span>
+            <span className="text-[#00E676]/70 text-[9px] tracking-[0.1em]">ONLINE</span>
           </div>
         </div>
       </div>
@@ -226,7 +226,7 @@ export default function GlobalStatusBar() {
       {/* Earthquake hover tooltip */}
       {hoveredQuake && (
         <div className="absolute bottom-[34px] left-1/2 -translate-x-1/2 z-[300] pointer-events-none">
-          <div className="bg-black/90 backdrop-blur-xl border border-white/[0.08] rounded-lg px-4 py-3 text-[11px] font-mono whitespace-nowrap shadow-2xl">
+          <div className="bg-black/90 border border-white/[0.08] rounded-lg px-4 py-3 text-[11px] font-mono whitespace-nowrap shadow-2xl">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-[11px]">🔴</span>
               <span className="font-bold text-[#FF5722]">Magnitude {hoveredQuake.magnitude.toFixed(1)}</span>

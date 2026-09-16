@@ -182,7 +182,7 @@ export default function MarketsPanel({ data, spaceWeather }: MarketsPanelProps) 
   const breadthBlock = breadth && (
     <div className="px-2 py-1.5 rounded-lg border border-[var(--border-primary)] bg-white/[0.02]">
       <div className="flex items-center justify-between">
-        <span className="text-[9px] font-mono tracking-widest text-[var(--text-muted)]">BREADTH</span>
+        <span className="text-[9px] font-mono tracking-[0.1em] text-[var(--text-muted)]">BREADTH</span>
         <span className="text-[10px] font-mono tabular-nums">
           <span style={{ color: GREEN }}>{breadth.up}▲</span>
           <span className="text-[var(--text-muted)]"> / </span>
@@ -205,7 +205,7 @@ export default function MarketsPanel({ data, spaceWeather }: MarketsPanelProps) 
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1.5">
           <Zap className="w-3 h-3" style={{ color: spaceWeather.storm_color }} />
-          <span className="text-[11px] font-mono tracking-widest text-[var(--text-muted)]">SPACE WEATHER</span>
+          <span className="text-[11px] font-mono tracking-[0.1em] text-[var(--text-muted)]">SPACE WEATHER</span>
         </div>
         <span className="text-[11px] font-mono font-bold" style={{ color: spaceWeather.storm_color }}>
           {spaceWeather.kp_index == null ? 'No reading' : `Kp ${spaceWeather.kp_index} — ${spaceWeather.storm_level}`}
@@ -219,7 +219,7 @@ export default function MarketsPanel({ data, spaceWeather }: MarketsPanelProps) 
     </div>
   );
 
-  const aiBlock = <AiOverview mode="markets" payload={{ markets, spaceWeather }} accent="#D4AF37" />;
+  const aiBlock = <AiOverview mode="markets" payload={{ markets, spaceWeather }} accent="#35D6B5" />;
 
   const scmBlock = markets.scm_alerts && markets.scm_alerts.length > 0 && (
     <div className="space-y-1">
@@ -259,13 +259,13 @@ export default function MarketsPanel({ data, spaceWeather }: MarketsPanelProps) 
 
   const listHeader = rows.length > 0 && (
     <div className="flex items-center justify-between px-2 py-1 shrink-0">
-      <span className="flex items-center gap-1 text-[9px] font-mono tracking-widest text-[var(--text-muted)]">
+      <span className="flex items-center gap-1 text-[9px] font-mono tracking-[0.1em] text-[var(--text-muted)]">
         <span className="w-1 h-1 rounded-full" style={{ background: sessionOpen ? GREEN : 'var(--text-muted)' }} />
         {sessionOpen ? 'SESSION OPEN' : 'SESSION CLOSED'}
       </span>
       <button
         onClick={() => setSortByMove(v => !v)}
-        className={`flex items-center gap-1 text-[9px] font-mono tracking-widest transition-colors ${sortByMove ? 'text-[var(--gold-primary)]' : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'}`}
+        className={`flex items-center gap-1 text-[9px] font-mono tracking-[0.1em] transition-colors ${sortByMove ? 'text-[var(--gold-primary)]' : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'}`}
         title={sortByMove ? 'Listed by biggest move' : 'Listed in feed order'}
       >
         <ArrowUpDown className="w-2.5 h-2.5" />
@@ -309,7 +309,7 @@ export default function MarketsPanel({ data, spaceWeather }: MarketsPanelProps) 
       // `relative` and `fixed` are both position utilities, so listing them
       // together lets CSS order decide the winner rather than the state —
       // which is what stopped the panel going fullscreen.
-      maximized ? 'fixed inset-3 z-[9999] bg-[#0a0a09]/95 backdrop-blur-3xl' : 'relative'
+      maximized ? 'fixed inset-3 z-[9999] bg-[#0a0a09]/95' : 'relative'
     }`}>
       {/* Header controls sit side by side, not nested — a button inside a
           button is invalid HTML and React fails hydration on it. */}

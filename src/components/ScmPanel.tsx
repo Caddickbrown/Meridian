@@ -50,7 +50,7 @@ export default function ScmPanel({ data }: ScmPanelProps) {
                 <div>
                   <div className="flex items-center gap-1.5 mb-1.5">
                     <AlertCircle className="w-3 h-3 text-[#FF9500]" />
-                    <span className="text-[10px] font-mono text-[#FF9500] tracking-widest font-bold">MARKET IMPACT ALERTS</span>
+                    <span className="text-[10px] font-mono text-[#FF9500] tracking-[0.1em] font-bold">MARKET IMPACT ALERTS</span>
                   </div>
                   <div className="space-y-1">
                     {marketAlerts.map((alert: string, i: number) => (
@@ -66,7 +66,7 @@ export default function ScmPanel({ data }: ScmPanelProps) {
               <div>
                 <div className="flex items-center gap-1.5 mb-1.5">
                   <AlertTriangle className="w-3 h-3 text-[#FF1744]" />
-                  <span className="text-[10px] font-mono text-[var(--text-muted)] tracking-widest">CRITICAL SUPPLIERS</span>
+                  <span className="text-[10px] font-mono text-[var(--text-muted)] tracking-[0.1em]">CRITICAL SUPPLIERS</span>
                 </div>
                 {criticalSuppliers.length === 0 ? (
                   <div className="text-[10px] font-mono text-[#00E676] px-2">✓ All monitored Tier 1/2 nodes operational.</div>
@@ -92,7 +92,7 @@ export default function ScmPanel({ data }: ScmPanelProps) {
               <div>
                 <div className="flex items-center gap-1.5 mb-1.5">
                   <Anchor className="w-3 h-3 text-[#FF9500]" />
-                  <span className="text-[10px] font-mono text-[var(--text-muted)] tracking-widest">CONGESTED NODES</span>
+                  <span className="text-[10px] font-mono text-[var(--text-muted)] tracking-[0.1em]">CONGESTED NODES</span>
                 </div>
                 {(congestedPorts.length === 0 && riskyChokes.length === 0) ? (
                   <div className="text-[10px] font-mono text-[#00E676] px-2">✓ Global maritime flow optimal.</div>

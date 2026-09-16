@@ -29,7 +29,7 @@ import {
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex items-center justify-between gap-3 py-1.5">
-      <span className="text-[10px] font-mono tracking-[0.15em] uppercase text-white/40 truncate">{label}</span>
+      <span className="text-[10px] font-mono tracking-[0.1em] uppercase text-white/40 truncate">{label}</span>
       {children}
     </div>
   );
@@ -140,7 +140,7 @@ const ON_OFF = [{ label: 'ON', value: 'on' }, { label: 'OFF', value: 'off' }];
 function SubHead({ label, note }: { label: string; note?: string }) {
   return (
     <div className="pt-2.5 pb-0.5">
-      <div className="text-[9px] font-mono tracking-[0.2em] uppercase text-white/30">{label}</div>
+      <div className="text-[9px] font-mono tracking-[0.1em] uppercase text-white/30">{label}</div>
       {note && <div className="text-[8px] font-mono leading-snug text-white/20 pt-0.5">{note}</div>}
     </div>
   );
@@ -177,7 +177,7 @@ function ResettableSwatch({ label, value, fallback, onChange }: {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col">
-      <div className="text-[9px] font-mono tracking-[0.25em] uppercase text-white/25 border-b border-white/[0.07] pb-1 mb-1">
+      <div className="text-[9px] font-mono tracking-[0.1em] uppercase text-white/25 border-b border-white/[0.07] pb-1 mb-1">
         {title}
       </div>
       {children}
@@ -293,7 +293,7 @@ function StyleStudio({ onClose, isMobile }: { onClose: () => void; isMobile?: bo
     >
       <div className="flex items-center justify-between px-3 py-2.5 border-b border-white/[0.07] shrink-0">
         <div className="flex flex-col">
-          <span className="text-[11px] font-mono tracking-[0.22em] uppercase text-[var(--gold-light)]">Style Studio</span>
+          <span className="text-[11px] font-mono tracking-[0.1em] uppercase text-[var(--gold-light)]">Style Studio</span>
           <span className="text-[9px] font-mono tracking-[0.1em] uppercase text-white/25">Live UI tokens</span>
         </div>
         <div className="flex items-center gap-1">

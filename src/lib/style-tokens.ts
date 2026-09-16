@@ -61,40 +61,40 @@ export interface StyleSettings {
 }
 
 export const FONT_UI = [
-  { label: 'INTER', value: "'Inter', -apple-system, sans-serif" },
-  { label: 'MONO', value: "'JetBrains Mono', monospace" },
+  { label: 'ARCHIVO', value: "'Archivo', 'Helvetica Neue', Arial, sans-serif" },
+  { label: 'MONO', value: "'IBM Plex Mono', ui-monospace, monospace" },
   { label: 'SYSTEM', value: 'system-ui, -apple-system, sans-serif' },
   { label: 'SERIF', value: "'Iowan Old Style', Georgia, serif" },
 ];
 
 export const FONT_MONO = [
-  { label: 'JETBRAINS', value: "'JetBrains Mono', 'Courier New', monospace" },
+  { label: 'PLEX', value: "'IBM Plex Mono', ui-monospace, Menlo, monospace" },
   { label: 'COURIER', value: "'Courier New', Courier, monospace" },
   { label: 'CONSOLAS', value: "Consolas, 'SF Mono', Menlo, monospace" },
-  { label: 'INTER', value: "'Inter', sans-serif" },
+  { label: 'ARCHIVO', value: "'Archivo', sans-serif" },
 ];
 
 /** Neutral baseline: also the shape used to enumerate every var we own. */
 export const DEFAULTS: StyleSettings = {
-  accent: '#d4af37',
-  accent2: '#00e5ff',
-  alertRed: '#ff3d3d',
-  alertOrange: '#ff9500',
-  alertGreen: '#00e676',
-  alertBlue: '#448aff',
-  bg: '#04040a',
-  bgPrimary: '#06060c',
-  bgSecondary: '#0c0e1a',
-  bgTertiary: '#121628',
-  panelAlpha: 0.88,
-  borderAlpha: 0.15,
-  textPrimary: '#e8e6e0',
-  textSecondary: '#9b978e',
-  textMuted: '#5c5a54',
-  textHeading: '#f5f0e0',
+  accent: '#35d6b5',
+  accent2: '#93b4ff',
+  alertRed: '#ff5a4e',
+  alertOrange: '#ffb020',
+  alertGreen: '#35d6b5',
+  alertBlue: '#93b4ff',
+  bg: '#0a0908',
+  bgPrimary: '#0d0c0b',
+  bgSecondary: '#131110',
+  bgTertiary: '#1d1a17',
+  panelAlpha: 0.96,
+  borderAlpha: 0.1,
+  textPrimary: '#f0eae0',
+  textSecondary: '#a29b90',
+  textMuted: '#6b655c',
+  textHeading: '#f0eae0',
   fontUi: FONT_UI[0].value,
   fontMono: FONT_MONO[0].value,
-  glow: 0.3,
+  glow: 0.22,
   tracking: null,
   blur: null,
   radius: 1,
@@ -110,8 +110,9 @@ export type Preset = { label: string; patch: Partial<StyleSettings> };
 
 /** Presets carry a full surface ramp so they don't inherit the old one. */
 export const PRESETS: Preset[] = [
+  { label: 'INSTRUMENT', patch: { accent: '#35d6b5', accent2: '#93b4ff', bg: '#0a0908', bgPrimary: '#0d0c0b', bgSecondary: '#131110', bgTertiary: '#1d1a17', textPrimary: '#f0eae0', textSecondary: '#a29b90', textMuted: '#6b655c', textHeading: '#f0eae0', glow: 0.22, scanlines: 0 } },
+  { label: 'PHANTOM', patch: { accent: '#c4a0ff', accent2: '#8fb0f0', bg: '#08070c', bgPrimary: '#0b0a11', bgSecondary: '#121019', bgTertiary: '#1b1826', textPrimary: '#ede7f5', textSecondary: '#a098b4', textMuted: '#6b6480', textHeading: '#ede7f5', glow: 0.22, scanlines: 0 } },
   { label: 'HORUS', patch: { accent: '#d4af37', accent2: '#00e5ff', bg: '#04040a', bgPrimary: '#06060c', bgSecondary: '#0c0e1a', bgTertiary: '#121628', textPrimary: '#e8e6e0', textSecondary: '#9b978e', textMuted: '#5c5a54', textHeading: '#f5f0e0', glow: 0.3, scanlines: 0 } },
-  { label: 'PHANTOM', patch: { accent: '#b388ff', accent2: '#7c4dff', bg: '#05000f', bgPrimary: '#08001a', bgSecondary: '#0d0025', bgTertiary: '#140033', textPrimary: '#e1bee7', textSecondary: '#9575cd', textMuted: '#6a4c93', textHeading: '#b388ff', glow: 0.35, scanlines: 0 } },
   { label: 'TERMINAL', patch: { accent: '#00ff9c', accent2: '#00b36b', bg: '#000a06', bgPrimary: '#001410', bgSecondary: '#00201a', bgTertiary: '#002d24', textPrimary: '#c8ffe4', textSecondary: '#5fbf95', textMuted: '#2e6b52', textHeading: '#7dffc4', glow: 0.4, scanlines: 0.05 } },
   { label: 'CRIMSON', patch: { accent: '#ff4d5a', accent2: '#ff9500', bg: '#0c0204', bgPrimary: '#140407', bgSecondary: '#1e070b', bgTertiary: '#2a0a10', textPrimary: '#ffd9dd', textSecondary: '#c98089', textMuted: '#6e3a42', textHeading: '#ff8f97', glow: 0.35, scanlines: 0 } },
   { label: 'ARCTIC', patch: { accent: '#8fd3ff', accent2: '#4fc3f7', bg: '#04080f', bgPrimary: '#070d18', bgSecondary: '#0b1524', bgTertiary: '#101f33', textPrimary: '#e3f2fd', textSecondary: '#90a4b8', textMuted: '#4a5d70', textHeading: '#c9e7ff', glow: 0.25, scanlines: 0 } },
@@ -246,13 +247,16 @@ export function buildVars(s: StyleSettings): Record<string, string> {
     '--bg-tertiary': s.bgTertiary,
     '--bg-panel': rgba(s.bg, s.panelAlpha),
     '--bg-panel-solid': s.bgSecondary,
-    '--border-primary': rgba(s.accent, s.borderAlpha),
-    '--border-secondary': rgba(s.accent, s.borderAlpha * 0.45),
-    '--border-active': rgba(s.accent, Math.min(1, s.borderAlpha * 2.4)),
-    '--border-cyan': rgba(s.accent2, s.borderAlpha * 1.2),
-    '--hover-accent': rgba(s.accent, s.borderAlpha * 0.5),
-    '--scrollbar-thumb': rgba(s.accent, s.borderAlpha * 1.2),
-    '--scrollbar-thumb-hover': rgba(s.accent, s.borderAlpha * 2.4),
+    /* Hairlines derive from the ink, not the accent: a brand-tinted border
+       makes every edge in the app read as an active state. Only
+       --border-active is allowed to carry the accent. */
+    '--border-primary': rgba(s.textPrimary, s.borderAlpha),
+    '--border-secondary': rgba(s.textPrimary, s.borderAlpha * 0.6),
+    '--border-active': rgba(s.accent, Math.min(1, s.borderAlpha * 4.5)),
+    '--border-cyan': rgba(s.accent2, s.borderAlpha * 2.2),
+    '--hover-accent': rgba(s.textPrimary, s.borderAlpha * 0.5),
+    '--scrollbar-thumb': rgba(s.textPrimary, s.borderAlpha * 1.4),
+    '--scrollbar-thumb-hover': rgba(s.textPrimary, s.borderAlpha * 2.8),
     '--text-primary': s.textPrimary,
     '--text-secondary': s.textSecondary,
     '--text-muted': s.textMuted,
@@ -299,7 +303,7 @@ ${at} .rounded-full { border-radius: 9999px; }`,
   }
 
   if (s.motion !== 1) {
-    blocks.push(`${at} *, ${at} *::before, ${at} *::after { transition-duration: ${Math.round(600 * s.motion)}ms !important; }`);
+    blocks.push(`${at} *, ${at} *::before, ${at} *::after { transition-duration: ${Math.round(140 * s.motion)}ms !important; }`);
   }
 
   if (!s.mapControls) {

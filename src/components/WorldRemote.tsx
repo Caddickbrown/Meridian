@@ -402,7 +402,7 @@ export default function WorldRemote({onClose,onPlaceOnMap}:{onClose?:()=>void,on
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-1.5 mb-0.5">
                             <span className="text-[11px] font-mono font-bold text-[var(--text-primary)] truncate">{dev.name}</span>
-                            {dev.connected&&<span className="text-[9px] font-mono px-1 py-0.5 rounded bg-[var(--alert-green)]/10 text-[var(--alert-green)] tracking-widest font-bold">LIVE</span>}
+                            {dev.connected&&<span className="text-[9px] font-mono px-1 py-0.5 rounded bg-[var(--alert-green)]/10 text-[var(--alert-green)] tracking-[0.1em] font-bold">LIVE</span>}
                           </div>
                           {dev.probing?(
                             <div className="flex items-center gap-2"><motion.div className="h-1 rounded-full flex-1" style={{background:`${dev.color}10`}}><motion.div className="h-full rounded-full" style={{background:dev.color}} animate={{width:['0%','60%','100%']}} transition={{duration:3}}/></motion.div><span className="text-[9px] font-mono animate-pulse" style={{color:dev.color}}>VACUUMING</span></div>
@@ -423,7 +423,7 @@ export default function WorldRemote({onClose,onPlaceOnMap}:{onClose?:()=>void,on
 
                         {/* Device Info */}
                         <div className="mt-2 mb-2.5 rounded-lg p-2.5" style={{background:'rgba(0,0,0,0.25)',border:'1px solid rgba(255,255,255,0.03)'}}>
-                          <div className="text-[9px] font-mono text-[var(--text-muted)] tracking-[0.2em] mb-1.5 font-bold">DEVICE INTEL</div>
+                          <div className="text-[9px] font-mono text-[var(--text-muted)] tracking-[0.1em] mb-1.5 font-bold">DEVICE INTEL</div>
                           <div className="space-y-1">
                             {[{k:'Manufacturer',v:dev.manufacturer},{k:'Model',v:dev.model},{k:'Serial',v:dev.serial},{k:'Firmware',v:dev.firmware},{k:'TX Power',v:dev.txPower!=null?`${dev.txPower} dBm`:undefined}].filter(x=>x.v).map(x=>(
                               <div key={x.k} className="flex gap-2"><span className="text-[9px] font-mono text-[var(--text-muted)] w-[65px] shrink-0 tracking-wider">{x.k}</span><span className="text-[9px] font-mono text-[var(--text-primary)] truncate">{x.v}</span></div>
@@ -437,7 +437,7 @@ export default function WorldRemote({onClose,onPlaceOnMap}:{onClose?:()=>void,on
                         {dev.services.length>0&&<div className="flex flex-wrap gap-1 mb-2.5">{dev.services.map((s,i)=><span key={i} className="text-[9px] font-mono px-1.5 py-0.5 rounded tracking-wider" style={{background:`${dev.color}06`,color:`${dev.color}70`}}>{s}</span>)}</div>}
 
                         {/* GATT Dump */}
-                        {dev.gattDump.length>0&&<div className="mb-2.5"><div className="text-[9px] font-mono text-[var(--text-muted)] tracking-[0.15em] mb-1 font-bold">VACUUM DUMP ({dev.gattDump.length})</div><div className="max-h-[120px] overflow-y-auto styled-scrollbar rounded-lg" style={{background:'rgba(0,0,0,0.3)'}}>
+                        {dev.gattDump.length>0&&<div className="mb-2.5"><div className="text-[9px] font-mono text-[var(--text-muted)] tracking-[0.1em] mb-1 font-bold">VACUUM DUMP ({dev.gattDump.length})</div><div className="max-h-[120px] overflow-y-auto styled-scrollbar rounded-lg" style={{background:'rgba(0,0,0,0.3)'}}>
                           {dev.gattDump.map((g,i)=><div key={i} className="px-2 py-1 flex items-start gap-1.5 hover:bg-white/[0.02]" style={{borderBottom:'1px solid rgba(255,255,255,0.02)'}}><span className="text-[9px] font-mono text-[var(--text-muted)] shrink-0 w-[50px] truncate">{g.svc}</span><span className="text-[9px] font-mono shrink-0 w-[50px] truncate" style={{color:dev.color}}>{g.char}</span><span className="text-[9px] font-mono text-[var(--text-primary)] flex-1 truncate">{g.value}</span></div>)}
                         </div></div>}
 
@@ -533,7 +533,7 @@ export default function WorldRemote({onClose,onPlaceOnMap}:{onClose?:()=>void,on
           {/* Footer */}
           <div className="flex items-center justify-between px-3 py-1.5 shrink-0" style={{borderTop:'1px solid rgba(255,255,255,0.03)',background:'rgba(0,0,0,0.2)'}}>
             <div className="flex items-center gap-1.5"><div className={`w-1.5 h-1.5 rounded-full ${btOk?'bg-[var(--alert-green)]':'bg-[#FF3D3D]'} ${scanning?'animate-pulse':''}`}/><span className="text-[9px] font-mono text-[var(--text-muted)] tracking-wider">{scanning?'SCANNING':liveCount>0?`${liveCount} LIVE`:'STANDBY'} · {upStr}</span></div>
-            <span className="text-[9px] font-mono text-[var(--text-muted)]/15 tracking-[0.2em]">MARAUDER V8</span>
+            <span className="text-[9px] font-mono text-[var(--text-muted)]/15 tracking-[0.1em]">MARAUDER V8</span>
           </div>
         </motion.div>
       )}</AnimatePresence>
