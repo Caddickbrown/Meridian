@@ -65,3 +65,4 @@ intel/node_modules/
 engine/__pycache__/
 runs/
 scratch/
+.env*
