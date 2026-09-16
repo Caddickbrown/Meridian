@@ -59,3 +59,9 @@ scanner_backend_backup.js
 
 # Saved camera catalogue
 /.cache/
+
+# Meridian additions
+intel/node_modules/
+engine/__pycache__/
+runs/
+scratch/
