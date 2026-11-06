@@ -13,7 +13,7 @@
 set -e
 
 # --- Configuration ---
-SERVER="root@100.89.48.10"
+SERVER="${DEPLOY_SERVER:?Set DEPLOY_SERVER to user@host}"
 REMOTE_DIR="/root/osiris"
 BRANCH="master"
 

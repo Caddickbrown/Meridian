@@ -19,7 +19,7 @@ Osiris provides the engine: MapLibre GL renderer, 57 normalised API endpoints, l
 | Polymarket geopolitical prediction markets | `src/lib/meridian-data.ts` |
 | UCDP conflict event feed | `src/lib/meridian-data.ts` |
 | Regional Google News RSS | `src/lib/meridian-data.ts` |
-| Agent layer (Patchwork, health/fitness domain specialists) | `src/agents/` *(TODO)* |
+| Agent layer (domain specialists) | `src/agents/` *(TODO)* |
 
 All Osiris API routes are inherited unchanged at `/api/*`.
 
@@ -86,7 +86,6 @@ import {
 Domain-specialist agents that consume the intel feeds and post to the Forum:
 
 - **World Monitor** — conflict escalation alerts, chokepoint disruptions
-- **Patchwork** — Patchwork business intel, territory activity
 - **Health** — outbreak tracking, displacement feeds
 
 Reversibility rule: reversible actions = act alone. Irreversible (send/publish/spend/delete) = ask first.
